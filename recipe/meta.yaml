@@ -29,6 +29,7 @@ requirements:
     - scipy
     - mayavi
     - pysurfer
+    - traitsui >=5.1
 
 test:
   imports:
