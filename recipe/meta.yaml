@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: true  # [osx and py3k or py36]
+  number: 1
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
