@@ -15,9 +15,7 @@ MNE python project for MEG and EEG data analysis.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/mne-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/mne-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/mne-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/mne-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/mne-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/mne-feedstock/branch/master)
+All platforms: [![Circle CI](https://circleci.com/gh/conda-forge/mne-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/mne-feedstock)
 
 Current release info
 ====================
