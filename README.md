@@ -15,12 +15,15 @@ MNE python project for MEG and EEG data analysis.
 Current build status
 ====================
 
-All platforms: [![Circle CI](https://circleci.com/gh/conda-forge/mne-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/mne-feedstock)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/mne-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/mne-feedstock)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/mne/badges/version.svg)](https://anaconda.org/conda-forge/mne)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/mne/badges/downloads.svg)](https://anaconda.org/conda-forge/mne)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-mne-green.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) |
 
 Installing mne
 ==============
