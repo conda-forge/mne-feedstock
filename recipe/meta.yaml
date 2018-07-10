@@ -34,8 +34,8 @@ requirements:
 test:
   imports:
     - mne
-#  commands:  # seems to be broken on Conda-Forge
-#    - mne
+  commands:
+    - mne
 
 about:
   home: http://martinos.org/mne
