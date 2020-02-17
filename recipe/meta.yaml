@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -23,7 +23,7 @@ requirements:
   run:
     - python >=3.5
     - dipy
-    - matplotlib
+    - matplotlib-base
     - nibabel
     - numpy
     - scikit-learn
