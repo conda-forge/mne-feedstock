@@ -1,6 +1,6 @@
 {% set name = "mne" %}
-{% set version = "0.19.2" %}
-{% set sha256 = "8348ae99a75a9b448c62a60c2e28e27316b6d4d0ec20c98d9f9dad1c4cd0ff75" %}
+{% set version = "0.20.0" %}
+{% set sha256 = "bb75d58d957857020f323563d9b96d7830c5a530de5ba64deb6fad67965e2447" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -25,12 +25,16 @@ requirements:
     - dipy
     - matplotlib-base
     - nibabel
+    - pandas
     - numpy
     - scikit-learn
     - scipy
     - mayavi
     - pysurfer
     - python-picard
+    - numba
+    - pyvista
+    - tqdm
 
 test:
   imports:
@@ -39,14 +43,14 @@ test:
     - mne
 
 about:
-  home: http://martinos.org/mne
+  home: http://mne.tools
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'MNE python project for MEG and EEG data analysis.'
+  summary: MNE python project for MEG and EEG data analysis.
   description: |
     MNE python project for MEG and EEG data analysis.
-  doc_url: http://martinos.org/mne
+  doc_url: http://mne.tools
   dev_url: https://github.com/mne-tools/mne-python
 
 extra:
