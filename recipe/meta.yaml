@@ -43,14 +43,14 @@ test:
     - mne
 
 about:
-  home: http://martinos.org/mne
+  home: http://mne.tools
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
   summary: MNE python project for MEG and EEG data analysis.
   description: |
     MNE python project for MEG and EEG data analysis.
-  doc_url: http://martinos.org/mne
+  doc_url: http://mne.tools
   dev_url: https://github.com/mne-tools/mne-python
 
 extra:
