@@ -32,8 +32,9 @@ requirements:
     - mayavi
     - pysurfer
     - python-picard
-    - tqdm
     - numba
+    - pyvista
+    - tqdm
 
 test:
   imports:
