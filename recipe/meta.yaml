@@ -32,7 +32,6 @@ requirements:
     - mayavi
     - pysurfer
     - python-picard
-    - pyvista
     - tqdm
     - numba
 
