@@ -52,7 +52,7 @@ test:
   imports:
     - mne
   commands:
-    - mne sys_info
+    - mne --version
 
 about:
   home: http://mne.tools
