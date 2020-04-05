@@ -1,15 +1,14 @@
 About mne
 =========
 
-Home: http://martinos.org/mne
+Home: http://mne.tools
 
 Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: MNE python project for MEG and EEG data analysis.
+Summary: MNE-Python is a software for MEG and EEG data analysis.
 
-MNE python project for MEG and EEG data analysis.
 
 
 Current build status
@@ -118,5 +117,6 @@ Feedstock Maintainers
 =====================
 
 * [@christianbrodbeck](https://github.com/christianbrodbeck/)
+* [@hoechenberger](https://github.com/hoechenberger/)
 * [@larsoner](https://github.com/larsoner/)
 
