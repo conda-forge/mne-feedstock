@@ -12,9 +12,11 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv
+  entry_points:
+    - mne = mne.commands.utils:main
 
 requirements:
   build:
@@ -25,7 +27,9 @@ requirements:
     - dipy
     - matplotlib-base
     - nibabel
-    - pandas
+    - nilearn
+    - pandas >=0.18
+    - xlrd
     - numpy
     - scikit-learn
     - scipy
@@ -33,23 +37,29 @@ requirements:
     - pysurfer
     - python-picard
     - numba
-    - pyvista
+    - pyvista >=0.24
     - tqdm
+    - h5py
+    - statsmodels
+    - numexpr
+    - pyqt >=5.9         # [not osx]
+    - pyqt >=5.10,<5.14  # [osx]
+    - pillow
+    - joblib
+    - psutil
 
 test:
   imports:
     - mne
   commands:
-    - mne
+    - mne sys_info
 
 about:
   home: http://mne.tools
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: MNE python project for MEG and EEG data analysis.
-  description: |
-    MNE python project for MEG and EEG data analysis.
+  summary: MNE-Python is a software for MEG and EEG data analysis.
   doc_url: http://mne.tools
   dev_url: https://github.com/mne-tools/mne-python
 
@@ -57,3 +67,4 @@ extra:
   recipe-maintainers:
     - larsoner
     - christianbrodbeck
+    - hoechenberger
