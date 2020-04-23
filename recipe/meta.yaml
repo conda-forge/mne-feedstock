@@ -1,6 +1,6 @@
 {% set name = "mne" %}
-{% set version = "0.20.0" %}
-{% set sha256 = "bb75d58d957857020f323563d9b96d7830c5a530de5ba64deb6fad67965e2447" %}
+{% set version = "0.20.1" %}
+{% set sha256 = "d9fe76f0a48cc1bdcc53d1fcd970968a82bdbf7ad6e3f81bb1ef022aa7049b11" %}
 
 package:
   name: {{ name|lower }}
@@ -12,11 +12,11 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mne = mne.commands.utils:main
-  skip: True  # [py <35] 
+  skip: true  # [py <35]
 
 requirements:
   build:
