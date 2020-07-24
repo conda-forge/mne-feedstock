@@ -12,47 +12,68 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
-  entry_points:
-    - mne = mne.commands.utils:main
-  skip: true  # [py <35]
+  number: 1
+  skip: true  # [py<36]
 
-requirements:
-  build:
-    - python
-    - pip
-  run:
-    - python
-    - dipy
-    - matplotlib-base
-    - nibabel
-    - nilearn
-    - pandas >=0.18
-    - xlrd
-    - numpy
-    - scikit-learn
-    - scipy
-    - mayavi
-    - pysurfer
-    - python-picard
-    - numba
-    - pyvista >=0.24
-    - tqdm
-    - h5py
-    - statsmodels
-    - numexpr
-    - pyqt >=5.9         # [not osx]
-    - pyqt >=5.10,<5.14  # [osx]
-    - pillow
-    - joblib
-    - psutil
+outputs:
+  - name: mne-base
 
-test:
-  imports:
-    - mne
-  commands:
-    - mne --version
+    script: build_base.bat  # [win]
+    script: build_base.sh   # [not win]
+
+    build:
+      entry_points:
+        - mne = mne.commands.utils:main
+
+    requirements:
+      host:
+        - python
+        - pip
+      run:
+        - python
+        - numpy
+        - scipy
+        - matplotlib-base
+
+    test:
+      imports:
+        - mne
+      commands:
+        - mne --version
+        - mne sys_info
+
+  - name: mne
+
+    requirements:
+      run:
+        - dipy
+        - nibabel
+        - nilearn
+        - pandas >=0.18
+        - xlrd
+        - scikit-learn
+        - mayavi
+        - pysurfer
+        - python-picard
+        - numba
+        - pyvista >=0.24
+        - tqdm
+        - h5py
+        - statsmodels
+        - numexpr
+        - pyqt >=5.9         # [not osx]
+        - pyqt >=5.10,<5.14  # [osx]
+        - pillow
+        - joblib
+        - psutil
+        - {{ pin_subpackage('mne-base', exact=True) }}
+
+    test:
+      imports:
+        - mne
+      commands:
+        - mne --version
+        - mne sys_info
 
 about:
   home: http://mne.tools
@@ -60,7 +81,6 @@ about:
   license_family: BSD
   license_file: LICENSE.txt
   summary: MNE-Python is a software for MEG and EEG data analysis.
-  doc_url: http://mne.tools
   dev_url: https://github.com/mne-tools/mne-python
 
 extra:
