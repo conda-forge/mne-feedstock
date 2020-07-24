@@ -5,7 +5,7 @@ Home: http://mne.tools
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: MNE-Python is a software for MEG and EEG data analysis.
 
@@ -111,6 +111,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-mne-green.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-mne--base-green.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) |
 
 Installing mne
 ==============
@@ -121,10 +122,10 @@ Installing `mne` from the `conda-forge` channel can be achieved by adding `conda
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `mne` can be installed with:
+Once the `conda-forge` channel has been enabled, `mne, mne-base` can be installed with:
 
 ```
-conda install mne
+conda install mne mne-base
 ```
 
 It is possible to list all of the versions of `mne` available on your platform with:
