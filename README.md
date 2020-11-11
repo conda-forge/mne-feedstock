@@ -5,11 +5,13 @@ Home: http://mne.tools
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mne-feedstock/blob/master/LICENSE.txt)
 
 Summary: MNE-Python is a software for MEG and EEG data analysis.
 
+Development: https://github.com/mne-tools/mne-python
 
+Documentation: http://mne.tools
 
 Current build status
 ====================
