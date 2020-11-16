@@ -1,6 +1,6 @@
 {% set name = "mne" %}
-{% set version = "0.21.1" %}
-{% set sha256 = "eef55afb62eec365c05e7a67c346dcf8be9ae34860465772cd712d3d6f719096" %}
+{% set version = "0.21.2" %}
+{% set sha256 = "45877784c924c21e962b5a9f69a231aa85c436a0b845be965bd6de0d2a280779" %}
 
 package:
   name: {{ name|lower }}
@@ -19,7 +19,7 @@ build:
   skip: true  # [py <35]
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
