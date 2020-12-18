@@ -12,32 +12,34 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  noarch: python
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mne = mne.commands.utils:main
-  skip: true  # [py <35]
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
     - dipy
-    - matplotlib-base
+    - matplotlib-base >=3.0
     - nibabel
     - nilearn
-    - pandas >=0.18
+    - pandas >=0.23.4
     - xlrd
-    - numpy
-    - scikit-learn
-    - scipy
+    - numpy >=1.15.4
+    - scikit-learn >=0.20.2
+    - scipy >=1.1.0
     - mayavi
     - pysurfer
     - python-picard
     - numba
-    - pyvista >=0.24
+    - vtk>=9.0.1
+    - pyvista>=0.24
+    - pyvistaqt>=0.2.0
     - tqdm
     - h5py
     - statsmodels
@@ -47,6 +49,12 @@ requirements:
     - pillow
     - joblib
     - psutil
+    - mffpy >=0.5.7
+    - imageio
+    - imageio-ffmpeg >=0.4.1
+    - traits
+    - traitsui
+    - pyface
 
 test:
   imports:
