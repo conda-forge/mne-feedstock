@@ -37,15 +37,14 @@ requirements:
     - pysurfer
     - python-picard
     - numba
-    - vtk>=9.0.1
-    - pyvista>=0.24
-    - pyvistaqt>=0.2.0
+    - vtk >=9.0.1
+    - pyvista >=0.24
+    - pyvistaqt >=0.2.0
     - tqdm
     - h5py
     - statsmodels
     - numexpr
-    - pyqt >=5.9         # [not osx]
-    - pyqt >=5.10,<5.14  # [osx]
+    - pyqt
     - pillow
     - joblib
     - psutil
