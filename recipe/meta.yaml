@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mne = mne.commands.utils:main
@@ -36,7 +36,7 @@ requirements:
     - mayavi
     - pysurfer
     - python-picard
-    - numba
+    # - numba  Re-enable once https://github.com/conda-forge/numba-feedstock/pull/64 has been resolved
     - vtk >=9.0.1
     - pyvista >=0.24
     - pyvistaqt >=0.2.0
