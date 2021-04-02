@@ -1,6 +1,6 @@
 {% set name = "mne" %}
-{% set version = "0.22.0" %}
-{% set sha256 = "63cf8a7985a350ff2b4dc64d1071044eceaca30f1a8ff51a2dc0552d122326a5" %}
+{% set version = "0.22.1" %}
+{% set sha256 = "fd8f714c74b7fe0e0ca45c731ccbf438e8fa30073165a584a8e60771d9bc894e" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mne = mne.commands.utils:main
