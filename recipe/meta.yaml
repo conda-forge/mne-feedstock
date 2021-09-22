@@ -15,12 +15,13 @@ build:
   noarch: python
   number: 1
 
-  # entry_points:
-  #   - mne = mne.commands.utils:main
-
 outputs:
   - name: mne
-    script: {{ PYTHON }} -m pip install . -vv
+    build:
+      script: {{ PYTHON }} -m pip install . -vv
+      entry_points:
+        - mne = mne.commands.utils:main
+
     requirements:
       host:
         - python >=3.6
@@ -65,7 +66,11 @@ outputs:
         - mne --version
 
   - name: mne-base
-    script: {{ PYTHON }} -m pip install . -vv
+    build:
+      script: {{ PYTHON }} -m pip install . -vv
+      entry_points:
+        - mne = mne.commands.utils:main
+  
     requirements:
       host:
         - python >=3.6
