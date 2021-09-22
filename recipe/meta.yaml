@@ -12,12 +12,12 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  noarch: python
-  number: 1
+  number: 2
 
 outputs:
   - name: mne-base
     build:
+      noarch: python
       script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
@@ -39,6 +39,9 @@ outputs:
         - mne --version
 
   - name: mne
+    build:
+      noarch: python
+
     requirements:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
