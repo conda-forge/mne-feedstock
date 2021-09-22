@@ -16,27 +16,38 @@ build:
   number: 1
 
 outputs:
-  - name: mne
+  - name: mne-base
     build:
       script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
-
+  
     requirements:
       host:
         - python >=3.6
         - pip
       run:
         - python >=3.6
-        - dipy
         - matplotlib-base >=3.0
+        - numpy >=1.15.4
+        - scipy >=1.1.0
+
+    test:
+      imports:
+        - mne
+      commands:
+        - mne --version
+
+  - name: mne
+    requirements:
+      run:
+        - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+        - dipy
         - nibabel
         - nilearn
         - pandas >=0.23.4
         - xlrd
-        - numpy >=1.15.4
         - scikit-learn >=0.20.2
-        - scipy >=1.1.0
         - mayavi
         - pysurfer
         - python-picard
@@ -65,27 +76,6 @@ outputs:
       commands:
         - mne --version
 
-  - name: mne-base
-    build:
-      script: python -m pip install --no-deps . -vv
-      entry_points:
-        - mne = mne.commands.utils:main
-  
-    requirements:
-      host:
-        - python >=3.6
-        - pip
-      run:
-        - python >=3.6
-        - matplotlib-base >=3.0
-        - numpy >=1.15.4
-        - scipy >=1.1.0
-
-    test:
-      imports:
-        - mne
-      commands:
-        - mne --version
 about:
   home: http://mne.tools
   license: BSD-3-Clause
