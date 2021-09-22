@@ -18,7 +18,7 @@ build:
 outputs:
   - name: mne
     build:
-      script: python -m pip install . -vv
+      script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
 
@@ -67,7 +67,7 @@ outputs:
 
   - name: mne-base
     build:
-      script: python -m pip install . -vv
+      script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
   
