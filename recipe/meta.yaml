@@ -54,7 +54,7 @@ outputs:
         - mayavi
         - pysurfer
         - python-picard
-        # - numba  Re-enable once https://github.com/conda-forge/numba-feedstock/pull/64 has been resolved
+        - numba
         - vtk >=9.0.1
         - pyvista >=0.24
         - pyvistaqt >=0.2.0
