@@ -1,4 +1,4 @@
-{% set name = "mne" %}
+{% set name = "mne-python" %}
 {% set version = "0.23.4" %}
 {% set sha256 = "ecace5caacf10961ebb74cc5e0ead4d4dbc55fed006eab1e644da144092354e9" %}
 
@@ -8,58 +8,73 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/m/mne/mne-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
-  entry_points:
-    - mne = mne.commands.utils:main
+  number: 1
 
-requirements:
-  host:
-    - python >=3.6
-    - pip
-  run:
-    - python >=3.6
-    - dipy
-    - matplotlib-base >=3.0
-    - nibabel
-    - nilearn
-    - pandas >=0.23.4
-    - xlrd
-    - numpy >=1.15.4
-    - scikit-learn >=0.20.2
-    - scipy >=1.1.0
-    - mayavi
-    - pysurfer
-    - python-picard
-    # - numba  Re-enable once https://github.com/conda-forge/numba-feedstock/pull/64 has been resolved
-    - vtk >=9.0.1
-    - pyvista >=0.24
-    - pyvistaqt >=0.2.0
-    - tqdm
-    - h5py
-    - statsmodels
-    - numexpr
-    - pyqt
-    - pillow
-    - joblib
-    - psutil
-    - mffpy >=0.5.7
-    - imageio
-    - imageio-ffmpeg >=0.4.1
-    - traits
-    - traitsui
-    - pyface
+outputs:
+  - name: mne-base
+    build:
+      script: python -m pip install --no-deps . -vv
+      entry_points:
+        - mne = mne.commands.utils:main
+  
+    requirements:
+      host:
+        - python >=3.6
+        - pip
+      run:
+        - python >=3.6
+        - matplotlib-base >=3.0
+        - numpy >=1.15.4
+        - scipy >=1.1.0
 
-test:
-  imports:
-    - mne
-  commands:
-    - mne --version
+    test:
+      imports:
+        - mne
+      commands:
+        - mne --version
+
+  - name: mne
+    requirements:
+      run:
+        - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+        - dipy
+        - nibabel
+        - nilearn
+        - pandas >=0.23.4
+        - xlrd
+        - scikit-learn >=0.20.2
+        - mayavi
+        - pysurfer
+        - python-picard
+        # - numba  Re-enable once https://github.com/conda-forge/numba-feedstock/pull/64 has been resolved
+        - vtk >=9.0.1
+        - pyvista >=0.24
+        - pyvistaqt >=0.2.0
+        - tqdm
+        - h5py
+        - statsmodels
+        - numexpr
+        - pyqt
+        - pillow
+        - joblib
+        - psutil
+        - mffpy >=0.5.7
+        - imageio
+        - imageio-ffmpeg >=0.4.1
+        - traits
+        - traitsui
+        - pyface
+
+    test:
+      imports:
+        - mne
+      commands:
+        - mne --version
 
 about:
   home: http://mne.tools
