@@ -1,6 +1,6 @@
 {% set name = "mne-python" %}
-{% set version = "0.23.4" %}
-{% set sha256 = "ecace5caacf10961ebb74cc5e0ead4d4dbc55fed006eab1e644da144092354e9" %}
+{% set version = "0.24.0" %}
+{% set sha256 = "188b4228ef4c97630afdc8b3b1fe97a6a0425473ca098d22e823f0b5a32d3322" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 3
+  number: 0
 
 outputs:
   - name: mne-base
@@ -21,16 +21,18 @@ outputs:
       script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
-  
+
     requirements:
       host:
-        - python >=3.6
+        - python >=3.7
         - pip
       run:
-        - python >=3.6
-        - matplotlib-base >=3.0
-        - numpy >=1.15.4
-        - scipy >=1.1.0
+        - python >=3.7
+        - matplotlib-base >=3.1.0
+        - numpy >=1.16.0
+        - scipy >=1.2.0
+        - pooch
+        - tqdm
 
     test:
       imports:
@@ -45,6 +47,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+        - matplotlib >=3.1.0
         - dipy
         - nibabel
         - nilearn
