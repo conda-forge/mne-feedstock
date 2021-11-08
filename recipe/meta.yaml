@@ -75,6 +75,7 @@ outputs:
         - traits
         - traitsui
         - pyface
+        - mne-qt-browser
 
     test:
       imports:
