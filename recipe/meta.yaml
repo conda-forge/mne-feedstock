@@ -28,6 +28,7 @@ outputs:
         - pip
       run:
         - python >=3.7
+        - setuptools
         - matplotlib-base >=3.1.0
         - numpy >=1.16.0
         - scipy >=1.2.0
@@ -35,9 +36,12 @@ outputs:
         - tqdm
 
     test:
+      requires:
+        - pip
       imports:
         - mne
       commands:
+        - pip check
         - mne --version
 
   - name: mne
@@ -61,7 +65,6 @@ outputs:
         - vtk >=9.0.1
         - pyvista >=0.24
         - pyvistaqt >=0.2.0
-        - tqdm
         - h5py
         - statsmodels
         - numexpr
