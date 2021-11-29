@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: mne-base
@@ -31,7 +31,7 @@ outputs:
         - matplotlib-base >=3.1.0
         - numpy >=1.16.0
         - scipy >=1.2.0
-        - pooch
+        - pooch >=1.5
         - tqdm
 
     test:
@@ -78,9 +78,12 @@ outputs:
         - mne-qt-browser
 
     test:
+      requires:
+        - pip
       imports:
         - mne
       commands:
+        - pip check
         - mne --version
 
 about:
