@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: mne-base
@@ -76,6 +76,7 @@ outputs:
         - imageio
         - imageio-ffmpeg >=0.4.1
         - traits
+        - traitlets
         - traitsui
         - pyface
         - mne-qt-browser
