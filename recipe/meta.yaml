@@ -32,8 +32,7 @@ outputs:
         - scipy >=1.2.0
         - pooch >=1.5
         - tqdm
-      run_constrained:
-        - menuinst
+        - menuinst  # [win]
 
     test:
       requires:
