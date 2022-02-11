@@ -17,23 +17,23 @@ build:
 outputs:
   - name: mne-base
     build:
-      noarch: python
-      script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
 
     requirements:
       host:
-        - python >=3.7
+        - python
         - pip
       run:
-        - python >=3.7
+        - python
         - setuptools
         - matplotlib-base >=3.1.0
         - numpy >=1.16.0
         - scipy >=1.2.0
         - pooch >=1.5
         - tqdm
+      run_constrained:
+        - menuinst
 
     test:
       requires:
