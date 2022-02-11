@@ -21,9 +21,12 @@ outputs:
         - mne = mne.commands.utils:main
 
     requirements:
-      host:
+      build:
         - python
         - pip
+      # host:
+      #   - python
+      #   - pip
       run:
         - python
         - setuptools
