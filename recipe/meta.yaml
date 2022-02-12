@@ -16,6 +16,8 @@ build:
 
 outputs:
   - name: mne-base
+    script: build_base.bat  # [win]
+    script: build_base.sh  # [not win]
     build:
       entry_points:
         - mne = mne.commands.utils:main
