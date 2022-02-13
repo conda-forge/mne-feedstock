@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: hhttps://github.com/mne-tools/mne-python.git
+  git_url: https://github.com/mne-tools/mne-python.git
   git_depth: 1
   git_rev: main
 
