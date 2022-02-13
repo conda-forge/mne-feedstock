@@ -46,51 +46,53 @@ outputs:
         - pip check
         - mne --version
 
-  # - name: mne
-  #   build:
-  #     noarch: python
+  - name: mne
+    build:
+      noarch: python
 
-  #   requirements:
-  #     run:
-  #       - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
-  #       - matplotlib >=3.1.0
-  #       - dipy
-  #       - nibabel
-  #       - nilearn
-  #       - pandas >=0.23.4
-  #       - xlrd
-  #       - scikit-learn >=0.20.2
-  #       - mayavi
-  #       - pysurfer
-  #       - python-picard
-  #       - numba
-  #       - vtk >=9.0.1
-  #       - pyvista >=0.24
-  #       - pyvistaqt >=0.2.0
-  #       - h5py
-  #       - statsmodels
-  #       - numexpr
-  #       - pyqt
-  #       - pillow
-  #       - joblib
-  #       - psutil
-  #       - mffpy >=0.5.7
-  #       - imageio
-  #       - imageio-ffmpeg >=0.4.1
-  #       - traits
-  #       - traitlets
-  #       - traitsui
-  #       - pyface
-  #       - mne-qt-browser
+    requirements:
+      run:
+        - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+        - matplotlib >=3.1.0
+        - jupyter
+        - h5io
+        - pymatreader
+        - h5py
+        - dipy
+        - nibabel
+        - nilearn
+        - pandas >=0.23.4
+        - xlrd
+        - scikit-learn >=0.20.2
+        - python-picard
+        - numba
+        - vtk >=9.0.1
+        - pyvista >=0.32
+        - pyvistaqt >=0.4
+        - statsmodels
+        - numexpr
+        - pyqt
+        - pillow
+        - joblib
+        - psutil
+        - mffpy >=0.5.7
+        - imageio >=2.6.1
+        - imageio-ffmpeg >=0.4.1
+        - traitlets
+        - sip
+        - pyqt5-sip
+        - mne-qt-browser
+        - ipywidgets
+        - ipyvtklink
 
-  #   test:
-  #     requires:
-  #       - pip
-  #     imports:
-  #       - mne
-  #     commands:
-  #       - pip check
-  #       - mne --version
+    test:
+      requires:
+        - pip
+      imports:
+        - mne
+      commands:
+        - pip check
+        - mne --version
 
 about:
   home: http://mne.tools
