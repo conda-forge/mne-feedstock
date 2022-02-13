@@ -1,5 +1,5 @@
 {% set name = "mne-python" %}
-{% set version = "1.0.dev0" %}
+{% set version = "1.0dev0" %}
 
 package:
   name: {{ name|lower }}
