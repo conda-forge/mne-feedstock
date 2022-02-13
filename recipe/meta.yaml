@@ -29,10 +29,13 @@ outputs:
         - python >=3.7
         - setuptools
         - matplotlib-base >=3.1.0
-        - numpy >=1.16.0
-        - scipy >=1.2.0
+        - numpy >=1.15.4
+        - scipy >=1.1.0
         - pooch >=1.5
         - tqdm
+        - decorator
+        - packaging
+        - jinja2
 
     test:
       requires:
