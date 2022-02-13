@@ -1,18 +1,17 @@
 {% set name = "mne-python" %}
-{% set version = "0.24.1" %}
-{% set sha256 = "38cbffd03a6ad0e83ef4a964ac9910a37d164c37fcc84894e39ed0cdf805300d" %}
+{% set version = "1.0dev0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/m/mne/mne-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  git_url: https://github.com/mne-tools/mne-python.git
+  # git_depth: 1
+  git_rev: main
 
 build:
-  number: 1
+  number: 20220213
 
 outputs:
   - name: mne-base
@@ -30,10 +29,13 @@ outputs:
         - python >=3.7
         - setuptools
         - matplotlib-base >=3.1.0
-        - numpy >=1.16.0
-        - scipy >=1.2.0
+        - numpy >=1.15.4
+        - scipy >=1.1.0
         - pooch >=1.5
         - tqdm
+        - decorator
+        - packaging
+        - jinja2
 
     test:
       requires:
@@ -52,20 +54,21 @@ outputs:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
         - matplotlib >=3.1.0
+        - jupyter
+        - h5io
+        - pymatreader
+        - h5py
         - dipy
         - nibabel
         - nilearn
         - pandas >=0.23.4
         - xlrd
         - scikit-learn >=0.20.2
-        - mayavi
-        - pysurfer
         - python-picard
         - numba
         - vtk >=9.0.1
-        - pyvista >=0.24
-        - pyvistaqt >=0.2.0
-        - h5py
+        - pyvista >=0.32
+        - pyvistaqt >=0.4
         - statsmodels
         - numexpr
         - pyqt
@@ -73,13 +76,14 @@ outputs:
         - joblib
         - psutil
         - mffpy >=0.5.7
-        - imageio
+        - imageio >=2.6.1
         - imageio-ffmpeg >=0.4.1
-        - traits
         - traitlets
-        - traitsui
-        - pyface
+        - sip
+        - pyqt5-sip
         - mne-qt-browser
+        - ipywidgets
+        - ipyvtklink
 
     test:
       requires:
