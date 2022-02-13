@@ -1,18 +1,17 @@
 {% set name = "mne-python" %}
-{% set version = "0.24.1" %}
-{% set sha256 = "38cbffd03a6ad0e83ef4a964ac9910a37d164c37fcc84894e39ed0cdf805300d" %}
+{% set version = "1.0.dev0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/m/mne/mne-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  git_url: hhttps://github.com/mne-tools/mne-python.git
+  git_depth: 1
+  git_rev: main
 
 build:
-  number: 1
+  number: 20220213
 
 outputs:
   - name: mne-base
@@ -44,51 +43,51 @@ outputs:
         - pip check
         - mne --version
 
-  - name: mne
-    build:
-      noarch: python
+  # - name: mne
+  #   build:
+  #     noarch: python
 
-    requirements:
-      run:
-        - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
-        - matplotlib >=3.1.0
-        - dipy
-        - nibabel
-        - nilearn
-        - pandas >=0.23.4
-        - xlrd
-        - scikit-learn >=0.20.2
-        - mayavi
-        - pysurfer
-        - python-picard
-        - numba
-        - vtk >=9.0.1
-        - pyvista >=0.24
-        - pyvistaqt >=0.2.0
-        - h5py
-        - statsmodels
-        - numexpr
-        - pyqt
-        - pillow
-        - joblib
-        - psutil
-        - mffpy >=0.5.7
-        - imageio
-        - imageio-ffmpeg >=0.4.1
-        - traits
-        - traitlets
-        - traitsui
-        - pyface
-        - mne-qt-browser
+  #   requirements:
+  #     run:
+  #       - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+  #       - matplotlib >=3.1.0
+  #       - dipy
+  #       - nibabel
+  #       - nilearn
+  #       - pandas >=0.23.4
+  #       - xlrd
+  #       - scikit-learn >=0.20.2
+  #       - mayavi
+  #       - pysurfer
+  #       - python-picard
+  #       - numba
+  #       - vtk >=9.0.1
+  #       - pyvista >=0.24
+  #       - pyvistaqt >=0.2.0
+  #       - h5py
+  #       - statsmodels
+  #       - numexpr
+  #       - pyqt
+  #       - pillow
+  #       - joblib
+  #       - psutil
+  #       - mffpy >=0.5.7
+  #       - imageio
+  #       - imageio-ffmpeg >=0.4.1
+  #       - traits
+  #       - traitlets
+  #       - traitsui
+  #       - pyface
+  #       - mne-qt-browser
 
-    test:
-      requires:
-        - pip
-      imports:
-        - mne
-      commands:
-        - pip check
-        - mne --version
+  #   test:
+  #     requires:
+  #       - pip
+  #     imports:
+  #       - mne
+  #     commands:
+  #       - pip check
+  #       - mne --version
 
 about:
   home: http://mne.tools
