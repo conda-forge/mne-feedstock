@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220213
+  number: 20220214
 
 outputs:
   - name: mne-base
@@ -78,9 +78,9 @@ outputs:
         - mffpy >=0.5.7
         - imageio >=2.6.1
         - imageio-ffmpeg >=0.4.1
+        - traits
+        - traitsui
         - traitlets
-        - sip
-        - pyqt5-sip
         - mne-qt-browser
         - ipywidgets
         - ipyvtklink
