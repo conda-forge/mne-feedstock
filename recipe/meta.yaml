@@ -14,98 +14,98 @@ build:
   number: 20220215
 
 outputs:
-  - name: mne-base
-    about:
-      description: |
-        This package contains the basic functionality for data analysis and 2D
-        visualization. For full functionality, including 3D visualization,
-        use the `mne` package instead.
+  # - name: mne-base
+  #   about:
+  #     description: |
+  #       This package contains the basic functionality for data analysis and 2D
+  #       visualization. For full functionality, including 3D visualization,
+  #       use the `mne` package instead.
 
-    build:
-      noarch: python
-      script: python -m pip install --no-deps . -vv
-      entry_points:
-        - mne = mne.commands.utils:main
+  #   build:
+  #     noarch: python
+  #     script: python -m pip install --no-deps . -vv
+  #     entry_points:
+  #       - mne = mne.commands.utils:main
 
-    requirements:
-      host:
-        - python >=3.7
-        - pip
-      run:
-        - python >=3.7
-        - setuptools
-        - matplotlib-base >=3.1.0
-        - numpy >=1.15.4
-        - scipy >=1.1.0
-        - pooch >=1.5
-        - tqdm
-        - decorator
-        - packaging
-        - jinja2
+  #   requirements:
+  #     host:
+  #       - python >=3.7
+  #       - pip
+  #     run:
+  #       - python >=3.7
+  #       - setuptools
+  #       - matplotlib-base >=3.1.0
+  #       - numpy >=1.15.4
+  #       - scipy >=1.1.0
+  #       - pooch >=1.5
+  #       - tqdm
+  #       - decorator
+  #       - packaging
+  #       - jinja2
 
-    test:
-      requires:
-        - pip
-      imports:
-        - mne
-      commands:
-        - pip check
-        - mne --version
+  #   test:
+  #     requires:
+  #       - pip
+  #     imports:
+  #       - mne
+  #     commands:
+  #       - pip check
+  #       - mne --version
 
-  - name: mne
-    about:
-      description: |
-        This package contains the full functionality including 3D
-        visualization. This means that this package has numerous dependencies.
-        If you only need basic functionality and 2D visualization, use the
-        `mne-base` package instead.
+  # - name: mne
+  #   about:
+  #     description: |
+  #       This package contains the full functionality including 3D
+  #       visualization. This means that this package has numerous dependencies.
+  #       If you only need basic functionality and 2D visualization, use the
+  #       `mne-base` package instead.
 
-    build:
-      noarch: python
+  #   build:
+  #     noarch: python
 
-    requirements:
-      run:
-        - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
-        - matplotlib >=3.1.0
-        - jupyter
-        - h5io
-        - pymatreader
-        - h5py
-        - dipy
-        - nibabel
-        - nilearn
-        - pandas >=0.23.4
-        - xlrd
-        - scikit-learn >=0.20.2
-        - python-picard
-        - numba
-        - vtk >=9.0.1
-        - pyvista >=0.32
-        - pyvistaqt >=0.4
-        - statsmodels
-        - numexpr
-        - pyqt
-        - pillow
-        - joblib
-        - psutil
-        - mffpy >=0.5.7
-        - imageio >=2.6.1
-        - imageio-ffmpeg >=0.4.1
-        - traits
-        - traitsui
-        - traitlets
-        - mne-qt-browser
-        - ipywidgets
-        - ipyvtklink
+  #   requirements:
+  #     run:
+  #       - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+  #       - matplotlib >=3.1.0
+  #       - jupyter
+  #       - h5io
+  #       - pymatreader
+  #       - h5py
+  #       - dipy
+  #       - nibabel
+  #       - nilearn
+  #       - pandas >=0.23.4
+  #       - xlrd
+  #       - scikit-learn >=0.20.2
+  #       - python-picard
+  #       - numba
+  #       - vtk >=9.0.1
+  #       - pyvista >=0.32
+  #       - pyvistaqt >=0.4
+  #       - statsmodels
+  #       - numexpr
+  #       - pyqt
+  #       - pillow
+  #       - joblib
+  #       - psutil
+  #       - mffpy >=0.5.7
+  #       - imageio >=2.6.1
+  #       - imageio-ffmpeg >=0.4.1
+  #       - traits
+  #       - traitsui
+  #       - traitlets
+  #       - mne-qt-browser
+  #       - ipywidgets
+  #       - ipyvtklink
 
-    test:
-      requires:
-        - pip
-      imports:
-        - mne
-      commands:
-        - pip check
-        - mne --version
+  #   test:
+  #     requires:
+  #       - pip
+  #     imports:
+  #       - mne
+  #     commands:
+  #       - pip check
+  #       - mne --version
 
   - name: mne-installer-menus
     about:
@@ -115,7 +115,7 @@ outputs:
       build:
         - sed
       host:
-        - python
+        - python >=3.7
 
     build:
       noarch: python
