@@ -13,3 +13,7 @@ def main():
         suffix='.html'
     )
     report.save(fname=report_file, open_browser=True)
+
+
+if __name__ == '__main__':
+    main()
