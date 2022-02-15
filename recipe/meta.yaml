@@ -78,8 +78,6 @@ outputs:
         - mffpy >=0.5.7
         - imageio >=2.6.1
         - imageio-ffmpeg >=0.4.1
-        - traits
-        - traitsui
         - traitlets
         - mne-qt-browser
         - ipywidgets
