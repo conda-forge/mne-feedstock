@@ -14,15 +14,6 @@ build:
   number: 20220215
   noarch: python
 
-about:
-  home: http://mne.tools
-  license: BSD-3-Clause
-  license_family: BSD
-  license_file: LICENSE.txt
-  summary: MNE-Python is a software for MEG and EEG data analysis.
-  doc_url: http://mne.tools
-  dev_url: https://github.com/mne-tools/mne-python
-
 outputs:
   - name: mne-base
     about:
@@ -156,6 +147,15 @@ outputs:
       commands:
         - test -f ${CONDA_PREFIX}/Menu/mne.json
         - test -f ${CONDA_PREFIX}/Menu/mne_sys_info.py
+
+about:
+  home: http://mne.tools
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: MNE-Python is a software for MEG and EEG data analysis.
+  doc_url: http://mne.tools
+  dev_url: https://github.com/mne-tools/mne-python
 
 extra:
   recipe-maintainers:
