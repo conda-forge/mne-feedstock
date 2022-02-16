@@ -111,12 +111,6 @@ outputs:
     about:
       summary: Menus for MNE-Python. This package is only used by the MNE-Python installers
 
-    app:
-      entry: spyder
-      icon: {{ RECIPE_DIR }}/menu/spyder.png
-      summary: Spyder (MNE-Python {{ PKG_VERSION }})
-      own_environment: True
-
     requirements:
       build:
         - sed
