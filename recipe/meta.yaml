@@ -110,12 +110,23 @@ outputs:
   - name: mne-installer-menus
     about:
       summary: Menus for MNE-Python. This package is only used by the MNE-Python installers
-    
+
+    app:
+      entry: spyder
+      icon: {{ RECIPE_DIR }}/menu/spyder.png
+      summary: Spyder (MNE-Python {{ PKG_VERSION }})
+      own_environment: True
+
     requirements:
       build:
         - sed
       host:
         - python >=3.7
+      
+      run:
+        - python >=3.7
+        - mne-base
+        - spyder
 
     build:
       noarch: python
@@ -126,7 +137,6 @@ outputs:
         - sed "s/__PKG_VERSION__/{{ PKG_VERSION }}/" "{{ RECIPE_DIR }}/menu/menu.json" > "{{ PREFIX }}/Menu/mne.json"
 
         # Spyder
-        - cp "{{ RECIPE_DIR }}/menu/spyder.png" "{{ PREFIX }}/Menu/mne_spyder.png"
         - cp "{{ RECIPE_DIR }}/menu/spyder.icns" "{{ PREFIX }}/Menu/mne_spyder.icns"
         - cp "{{ RECIPE_DIR }}/menu/spyder.ico" "{{ PREFIX }}/Menu/mne_spyder.ico"
 
