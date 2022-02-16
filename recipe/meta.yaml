@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220215
+  number: 20220216
 
 outputs:
   - name: mne-base
@@ -133,6 +133,8 @@ outputs:
         # Console
         - cp "{{ RECIPE_DIR }}/menu/console.icns" "{{ PREFIX }}/Menu/mne_console.icns"
         - cp "{{ RECIPE_DIR }}/menu/console.ico" "{{ PREFIX }}/Menu/mne_console.ico"
+        # Use hash as separator, as PREFIX contains forward slashes!
+        - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.applescript" > "{{ PREFIX }}/Menu/mne_open_prompt.applescript"
 
         # System info
         - cp "{{ RECIPE_DIR }}/menu/info.icns" "{{ PREFIX }}/Menu/mne_info.icns"

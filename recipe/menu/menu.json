@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema",
   "$id": "https://schemas.conda.io/menuinst-1.schema.json",
-  "menu_name": "MNE-Python (1.0dev0)",
+  "menu_name": "MNE-Python (__PKG_VERSION__)",
   "menu_items": [{
     "name": "Spyder",
     "description": "The Spyder development environment",
@@ -25,9 +25,9 @@
       },
       "osx": {
         "command": ["spyder"],
-        "CFBundleName": "Spyder (MNE-Python 1.0dev0)",
-        "CFBundleDisplayName": "Spyder (MNE-Python 1.0dev0)",
-        "CFBundleVersion": "1.0dev0"
+        "CFBundleName": "Spyder (MNE-Python __PKG_VERSION__)",
+        "CFBundleDisplayName": "Spyder (MNE-Python __PKG_VERSION__)",
+        "CFBundleVersion": "__PKG_VERSION__"
       }
     }
   },
@@ -51,9 +51,9 @@
         ]
       },
       "osx": {
-        "CFBundleName": "System Information (MNE-Python 1.0dev0)",
-        "CFBundleDisplayName": "System Information (MNE-Python 1.0dev0)",
-        "CFBundleVersion": "1.0dev0"
+        "CFBundleName": "System Information (MNE-Python __PKG_VERSION__)",
+        "CFBundleDisplayName": "System Information (MNE-Python __PKG_VERSION__)",
+        "CFBundleVersion": "__PKG_VERSION__"
       }
     }
   },
@@ -85,12 +85,12 @@
       },
       "osx": {
         "command": [
-          "echo",
-          "'FIX ME'"
+          "osascript",
+          "{{ MENU_DIR }}/open_prompt.applescript"
         ],
-        "CFBundleName": "Prompt (MNE-Python 1.0dev0)",
-        "CFBundleDisplayName": "Prompt (MNE-Python 1.0dev0)",
-        "CFBundleVersion": "1.0dev0"
+        "CFBundleName": "Prompt (MNE-Python __PKG_VERSION__)",
+        "CFBundleDisplayName": "Prompt (MNE-Python __PKG_VERSION__)",
+        "CFBundleVersion": "__PKG_VERSION__"
       }
     }
   },
@@ -123,9 +123,9 @@
           "open",
           "https://mne.tools/stable/auto_tutorials/"
         ],
-        "CFBundleName": "Tutorials (MNE-Python 1.0dev0)",
-        "CFBundleDisplayName": "Tutorials (MNE-Python 1.0dev0)",
-        "CFBundleVersion": "1.0dev0"
+        "CFBundleName": "Tutorials (MNE-Python __PKG_VERSION__)",
+        "CFBundleDisplayName": "Tutorials (MNE-Python __PKG_VERSION__)",
+        "CFBundleVersion": "__PKG_VERSION__"
       }
     }
   },
@@ -158,9 +158,9 @@
           "open",
           "https://mne.discourse.group"
         ],
-        "CFBundleName": "Forum (MNE-Python 1.0dev0)",
-        "CFBundleDisplayName": "Forum (MNE-Python 1.0dev0)",
-        "CFBundleVersion": "1.0dev0"
+        "CFBundleName": "Forum (MNE-Python __PKG_VERSION__)",
+        "CFBundleDisplayName": "Forum (MNE-Python __PKG_VERSION__)",
+        "CFBundleVersion": "__PKG_VERSION__"
       }
     }
   }]
