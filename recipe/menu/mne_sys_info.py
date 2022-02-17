@@ -10,9 +10,11 @@ def main():
 
     report_file = tempfile.NamedTemporaryFile(
         prefix='mne_sys_info',
-        suffix='.html'
+        suffix='.html',
+        delete=False
     )
-    report.save(fname=report_file, open_browser=True)
+    report_file.close()
+    report.save(fname=report_file.name, open_browser=True, overwrite=True)
 
 
 if __name__ == '__main__':

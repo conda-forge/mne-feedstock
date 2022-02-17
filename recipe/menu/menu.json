@@ -6,15 +6,15 @@
     "name": "Spyder",
     "description": "The Spyder development environment",
     "icon": "{{ MENU_DIR }}/mne_spyder.{{ ICON_EXT }}",
-    "command": ["will_be_overridden_in_platforms_section"],
+    "command": ["will be overridden in platforms section"],
     "activate": true,
     "terminal": false,
     "platforms": {
       "win": {
         "command": [
           "{{ PYTHONW }}",
-          "${PYTHON_SCRIPTS}/spyder-script.py"
-        ],    
+          "{{ PREFIX }}\\Scripts\\spyder-script.py"
+        ],
         "desktop": true
       },
       "linux": {
@@ -40,7 +40,7 @@
       "{{ MENU_DIR }}/mne_sys_info.py"
     ],
     "activate": true,
-    "terminal": false,
+    "terminal": true,
     "platforms": {
       "win": {
         "desktop": true
@@ -63,14 +63,13 @@
     "icon": "{{ MENU_DIR }}/mne_console.{{ ICON_EXT }}",
     "activate": true,
     "terminal": true,
-    "command": ["will_be_overridden_in_platforms_section"],
+    "command": ["will be overridden in platforms section"],
     "platforms": {
       "win": {
         "command": [
           "%windir%\\system32\\cmd.exe",
           "/K",
-          "${PYTHON_SCRIPTS}\\activate.bat",
-          "${PREFIX}"
+          "{{ PREFIX }}\\Scripts\\activate.bat"
         ],
         "desktop": false
       },
@@ -100,12 +99,12 @@
     "icon": "{{ MENU_DIR }}/mne_web.{{ ICON_EXT }}",
     "activate": false,
     "terminal": false,
-    "command": ["will_be_overridden_in_platforms_section"],
+    "command": ["will be overridden in platforms section"],
     "platforms": {
       "win": {
         "command": [
-          "start",
-          "https://mne.tools/stable/auto_tutorials/"
+          "powershell.exe",
+          "\"start https://mne.tools/stable/auto_tutorials -WindowStyle hidden\""
         ],
         "desktop": false
       },
@@ -135,12 +134,12 @@
     "icon": "{{ MENU_DIR }}/mne_forum.{{ ICON_EXT }}",
     "activate": false,
     "terminal": false,
-    "command": ["will_be_overridden_in_platforms_section"],
+    "command": ["will be overridden in platforms section"],
     "platforms": {
       "win": {
         "command": [
-          "start",
-          "https://mne.discourse.group"
+          "powershell.exe",
+          "\"start https://mne.discourse.group -WindowStyle hidden\""
         ],
         "desktop": false
       },
