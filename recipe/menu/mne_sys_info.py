@@ -5,8 +5,8 @@ import mne
 
 
 def main():
-    report = mne.Report()
-    report.add_sys_info()
+    report = mne.Report('MNE System Information')
+    report.add_sys_info('System Information')
 
     report_file = tempfile.NamedTemporaryFile(
         prefix='mne_sys_info',

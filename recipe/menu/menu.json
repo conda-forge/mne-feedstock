@@ -13,7 +13,7 @@
       "win": {
         "command": [
           "{{ PYTHONW }}",
-          "{{ PREFIX }}\\Scripts\\spyder-script.py"
+          "{{ SCRIPTS_DIR }}\\spyder-script.py"
         ],
         "desktop": true
       },
@@ -69,7 +69,7 @@
         "command": [
           "%windir%\\system32\\cmd.exe",
           "/K",
-          "{{ PREFIX }}\\Scripts\\activate.bat"
+          "{{ SCRIPTS_DIR }}\\activate.bat"
         ],
         "desktop": false
       },
