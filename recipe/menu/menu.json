@@ -85,7 +85,7 @@
       "osx": {
         "command": [
           "osascript",
-          "{{ MENU_DIR }}/open_prompt.applescript"
+          "{{ MENU_DIR }}/mne_open_prompt.applescript"
         ],
         "CFBundleName": "Prompt (MNE-Python __PKG_VERSION__)",
         "CFBundleDisplayName": "Prompt (MNE-Python __PKG_VERSION__)",
