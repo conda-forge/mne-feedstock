@@ -3,7 +3,7 @@
   "$id": "https://schemas.conda.io/menuinst-1.schema.json",
   "menu_name": "MNE-Python (__PKG_VERSION__)",
   "menu_items": [{
-    "name": "Spyder",
+    "name": "MNE Spyder (__PKG_VERSION__)",
     "description": "The Spyder development environment",
     "icon": "{{ MENU_DIR }}/mne_spyder.{{ ICON_EXT }}",
     "command": ["will be overridden in platforms section"],
@@ -32,7 +32,7 @@
     }
   },
   {
-    "name": "System Information",
+    "name": "MNE System Info (__PKG_VERSION__)",
     "description": "Information on the MNE-Python runtime environment",
     "icon": "{{ MENU_DIR }}/mne_info.{{ ICON_EXT }}",
     "command": [
@@ -58,7 +58,7 @@
     }
   },
   {
-    "name": "Prompt",
+    "name": "MNE Prompt (__PKG_VERSION__)",
     "description": "MNE-Python console prompt",
     "icon": "{{ MENU_DIR }}/mne_console.{{ ICON_EXT }}",
     "activate": true,
@@ -94,7 +94,7 @@
     }
   },
   {
-    "name": "Tutorials",
+    "name": "MNE Tutorials (__PKG_VERSION__)",
     "description": "MNE-Python online tutorials",
     "icon": "{{ MENU_DIR }}/mne_web.{{ ICON_EXT }}",
     "activate": false,
@@ -129,7 +129,7 @@
     }
   },
   {
-    "name": "User Forum",
+    "name": "MNE User Forum (__PKG_VERSION__)",
     "description": "MNE-Python forum for discussions, problem solving, and information exchange",
     "icon": "{{ MENU_DIR }}/mne_forum.{{ ICON_EXT }}",
     "activate": false,
