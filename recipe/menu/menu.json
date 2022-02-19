@@ -67,7 +67,7 @@
     "platforms": {
       "win": {
         "command": [
-          "%windir%\\system32\\cmd.exe",
+          "%SystemRoot%\\system32\\cmd.exe",
           "/K",
           "{{ SCRIPTS_DIR }}\\activate.bat"
         ],
@@ -103,7 +103,7 @@
     "platforms": {
       "win": {
         "command": [
-          "powershell.exe",
+          "%SystemRoot%\\system32\\WindowsPowerShell\\v1.0\\powershell.exe",
           "\"start https://mne.tools/stable/auto_tutorials -WindowStyle hidden\""
         ],
         "desktop": false
@@ -138,7 +138,7 @@
     "platforms": {
       "win": {
         "command": [
-          "powershell.exe",
+          "%SystemRoot%\\system32\\WindowsPowerShell\\v1.0\\powershell.exe",
           "\"start https://mne.discourse.group -WindowStyle hidden\""
         ],
         "desktop": false
