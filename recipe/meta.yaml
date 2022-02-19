@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 202202181
+  number: 20220219
 
 outputs:
   - name: mne-base
@@ -155,6 +155,7 @@ outputs:
       commands:
         - test -f ${CONDA_PREFIX}/Menu/mne.json
         - test -f ${CONDA_PREFIX}/Menu/mne_sys_info.py
+        - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.applescript
 
 about:
   home: http://mne.tools
