@@ -43,7 +43,7 @@
     "terminal": true,
     "platforms": {
       "win": {
-        "desktop": true
+        "desktop": false
       },
       "linux": {
         "Categories": [
@@ -71,7 +71,7 @@
           "/K",
           "{{ SCRIPTS_DIR }}\\activate.bat"
         ],
-        "desktop": false
+        "desktop": true
       },
       "linux": {
         "command": [
