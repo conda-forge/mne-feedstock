@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 202202181
+  number: 20220219
 
 outputs:
   - name: mne-base
