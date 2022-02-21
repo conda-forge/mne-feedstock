@@ -131,30 +131,42 @@ outputs:
         # Spyder
         - cp "{{ RECIPE_DIR }}/menu/spyder.icns" "{{ PREFIX }}/Menu/mne_spyder.icns"
         - cp "{{ RECIPE_DIR }}/menu/spyder.ico" "{{ PREFIX }}/Menu/mne_spyder.ico"
+        - cp "{{ RECIPE_DIR }}/menu/spyder.png" "{{ PREFIX }}/Menu/mne_spyder.png"
 
         # Console
         - cp "{{ RECIPE_DIR }}/menu/console.icns" "{{ PREFIX }}/Menu/mne_console.icns"
         - cp "{{ RECIPE_DIR }}/menu/console.ico" "{{ PREFIX }}/Menu/mne_console.ico"
+        - cp "{{ RECIPE_DIR }}/menu/console.png" "{{ PREFIX }}/Menu/mne_console.png"
         # Use hash as separator, as PREFIX contains forward slashes!
         - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.applescript" > "{{ PREFIX }}/Menu/mne_open_prompt.applescript"
 
         # System info
         - cp "{{ RECIPE_DIR }}/menu/info.icns" "{{ PREFIX }}/Menu/mne_info.icns"
         - cp "{{ RECIPE_DIR }}/menu/info.ico" "{{ PREFIX }}/Menu/mne_info.ico"
+        - cp "{{ RECIPE_DIR }}/menu/info.png" "{{ PREFIX }}/Menu/mne_info.png"
         - cp "{{ RECIPE_DIR }}/menu/mne_sys_info.py" "{{ PREFIX }}/Menu/mne_sys_info.py"
 
         # Website
         - cp "{{ RECIPE_DIR }}/menu/web.icns" "{{ PREFIX }}/Menu/mne_web.icns"
         - cp "{{ RECIPE_DIR }}/menu/web.ico" "{{ PREFIX }}/Menu/mne_web.ico"
+        - cp "{{ RECIPE_DIR }}/menu/web.png" "{{ PREFIX }}/Menu/mne_web.png"
 
         # Forum
         - cp "{{ RECIPE_DIR }}/menu/forum.icns" "{{ PREFIX }}/Menu/mne_forum.icns"
         - cp "{{ RECIPE_DIR }}/menu/forum.ico" "{{ PREFIX }}/Menu/mne_forum.ico"
+        - cp "{{ RECIPE_DIR }}/menu/forum.png" "{{ PREFIX }}/Menu/mne_forum.png"
 
     test:
       commands:
         - test -f ${CONDA_PREFIX}/Menu/mne.json
         - test -f ${CONDA_PREFIX}/Menu/mne_sys_info.py
+        - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.applescript
+        # Check we didn't forget any icons
+        - test `ls ${CONDA_PREFIX}/Menu/mne_spyder.*  | wc -l` -eq 3
+        - test `ls ${CONDA_PREFIX}/Menu/mne_console.* | wc -l` -eq 3
+        - test `ls ${CONDA_PREFIX}/Menu/mne_info.*    | wc -l` -eq 3
+        - test `ls ${CONDA_PREFIX}/Menu/mne_web.*     | wc -l` -eq 3
+        - test `ls ${CONDA_PREFIX}/Menu/mne_forum.*   | wc -l` -eq 3
 
 about:
   home: http://mne.tools
