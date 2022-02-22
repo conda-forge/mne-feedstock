@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220222
+  number: 202202221
 
 outputs:
   - name: mne-base
@@ -122,7 +122,8 @@ outputs:
         - cp "{{ RECIPE_DIR }}/menu/console.ico" "{{ PREFIX }}/Menu/mne_console.ico"
         - cp "{{ RECIPE_DIR }}/menu/console.png" "{{ PREFIX }}/Menu/mne_console.png"
         # Use hash as separator, as PREFIX contains forward slashes!
-        - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.applescript" > "{{ PREFIX }}/Menu/mne_open_prompt.applescript"
+        - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.applescript" > "{{ PREFIX }}/Menu/mne_open_prompt.applescript"  # for macOS
+        - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.sh" > "{{ PREFIX }}/Menu/mne_open_prompt.sh"                    # for Linux
 
         # System info
         - cp "{{ RECIPE_DIR }}/menu/info.icns" "{{ PREFIX }}/Menu/mne_info.icns"
@@ -145,6 +146,7 @@ outputs:
         - test -f ${CONDA_PREFIX}/Menu/mne.json
         - test -f ${CONDA_PREFIX}/Menu/mne_sys_info.py
         - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.applescript
+        - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.sh
         # Check we didn't forget any icons
         - test `ls ${CONDA_PREFIX}/Menu/mne_spyder.*  | wc -l` -eq 3
         - test `ls ${CONDA_PREFIX}/Menu/mne_console.* | wc -l` -eq 3
