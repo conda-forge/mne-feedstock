@@ -101,7 +101,7 @@ outputs:
       
       run:
         - python >=3.7
-        - mne-base
+        - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
         - spyder
 
     build:
