@@ -1,17 +1,22 @@
 About mne-python
 ================
 
-Home: 
+Home: http://mne.tools
 
-Package license: 
+Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mne-feedstock/blob/master/LICENSE.txt)
 
-Summary: 
+Summary: MNE-Python is a software for MEG and EEG data analysis.
 
-This package contains the basic functionality for data analysis and 2D
+Development: https://github.com/mne-tools/mne-python
+
+Documentation: http://mne.tools
+
+`mne-base` contains the basic functionality for data analysis and 2D
 visualization. For full functionality, including 3D visualization,
-use the `mne` package instead.
+use the `mne` package instead. `mne-installer-menus` is only used by the
+standalone installers and should not be installed manually.
 
 
 Current build status
