@@ -78,7 +78,7 @@
           "exec",
           "bash",
           "--init-file",
-          "<(echo \". ~/.bashrc; . {{ PREFIX }}/bin/activate; echo \\\"Using Python: `which python`\\\"; echo \\\"This is MNE-Python `mne --version`\\\"\")'"
+          "{{ MENU_DIR }}/mne_open_prompt.sh"
         ],
         "Categories": [
           "Science"
