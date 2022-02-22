@@ -75,7 +75,10 @@
       },
       "linux": {
         "command": [
-          "exec bash --init-file <(echo \". ~/.bashrc; . {{ PREFIX }}/bin/activate; echo \\\"Using Python: `which python`\\\"; echo \\\"This is MNE-Python `mne --version`\\\"\")'"
+          "exec",
+          "bash",
+          "--init-file",
+          "<(echo \". ~/.bashrc; . {{ PREFIX }}/bin/activate; echo \\\"Using Python: `which python`\\\"; echo \\\"This is MNE-Python `mne --version`\\\"\")'"
         ],
         "Categories": [
           "Science"
