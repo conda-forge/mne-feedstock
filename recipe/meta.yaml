@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 202202221
+  number: 20220228
 
 outputs:
   - name: mne-base
@@ -141,6 +141,9 @@ outputs:
         - cp "{{ RECIPE_DIR }}/menu/forum.ico" "{{ PREFIX }}/Menu/mne_forum.ico"
         - cp "{{ RECIPE_DIR }}/menu/forum.png" "{{ PREFIX }}/Menu/mne_forum.png"
 
+        # Folder icon for macOS
+        - cp "{{ RECIPE_DIR }}/menu/mne.png" "{{ PREFIX }}/Menu/mne.png"
+
     test:
       commands:
         - test -f ${CONDA_PREFIX}/Menu/mne.json
@@ -153,6 +156,7 @@ outputs:
         - test `ls ${CONDA_PREFIX}/Menu/mne_info.*    | wc -l` -eq 3
         - test `ls ${CONDA_PREFIX}/Menu/mne_web.*     | wc -l` -eq 3
         - test `ls ${CONDA_PREFIX}/Menu/mne_forum.*   | wc -l` -eq 3
+        - test -f ${CONDA_PREFIX}/Menu/mne.png
 
 about:
   home: http://mne.tools
