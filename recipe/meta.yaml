@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220228
+  number: 20220304
 
 outputs:
   - name: mne-base
@@ -54,6 +54,7 @@ outputs:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
         - matplotlib >=3.1.0
+        - seaborn
         - jupyter
         - h5io
         - pymatreader
@@ -75,6 +76,7 @@ outputs:
         - pillow
         - joblib
         - psutil
+        - cupy  # [not osx]
         - mffpy >=0.5.7
         - imageio >=2.6.1
         - imageio-ffmpeg >=0.4.1
