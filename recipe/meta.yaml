@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220304
+  number: 20220305
 
 outputs:
   - name: mne-base
@@ -76,7 +76,6 @@ outputs:
         - pillow
         - joblib
         - psutil
-        - cupy  # [not osx]
         - mffpy >=0.5.7
         - imageio >=2.6.1
         - imageio-ffmpeg >=0.4.1
