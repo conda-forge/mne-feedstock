@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220305
+  number: 20220308
 
 outputs:
   - name: mne-base
@@ -99,7 +99,6 @@ outputs:
         - sed
       host:
         - python >=3.7
-      
       run:
         - python >=3.7
         - mne-base
