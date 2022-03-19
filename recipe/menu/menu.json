@@ -15,7 +15,7 @@
           "{{ PYTHONW }}",
           "{{ SCRIPTS_DIR }}\\spyder-script.py"
         ],
-        "desktop": true
+        "desktop": false
       },
       "linux": {
         "command": ["spyder"],
@@ -71,7 +71,7 @@
           "/K",
           "{{ SCRIPTS_DIR }}\\activate.bat"
         ],
-        "desktop": true
+        "desktop": false
       },
       "linux": {
         "command": [
