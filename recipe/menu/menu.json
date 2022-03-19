@@ -3,7 +3,7 @@
   "$id": "https://schemas.conda.io/menuinst-1.schema.json",
   "menu_name": "MNE-Python (__PKG_VERSION__)",
   "menu_items": [{
-    "name": "MNE Spyder (__PKG_VERSION__)",
+    "name": "Spyder (MNE)",
     "description": "The Spyder development environment",
     "icon": "{{ MENU_DIR }}/mne_spyder.{{ ICON_EXT }}",
     "command": ["will be overridden in platforms section"],
@@ -15,7 +15,7 @@
           "{{ PYTHONW }}",
           "{{ SCRIPTS_DIR }}\\spyder-script.py"
         ],
-        "desktop": true
+        "desktop": false
       },
       "linux": {
         "command": ["spyder"],
@@ -32,7 +32,7 @@
     }
   },
   {
-    "name": "MNE System Info (__PKG_VERSION__)",
+    "name": "System Info (MNE)",
     "description": "Information on the MNE-Python runtime environment",
     "icon": "{{ MENU_DIR }}/mne_info.{{ ICON_EXT }}",
     "command": [
@@ -58,7 +58,7 @@
     }
   },
   {
-    "name": "MNE Prompt (__PKG_VERSION__)",
+    "name": "Prompt (MNE)",
     "description": "MNE-Python console prompt",
     "icon": "{{ MENU_DIR }}/mne_console.{{ ICON_EXT }}",
     "activate": true,
@@ -71,7 +71,7 @@
           "/K",
           "{{ SCRIPTS_DIR }}\\activate.bat"
         ],
-        "desktop": true
+        "desktop": false
       },
       "linux": {
         "command": [
@@ -96,7 +96,7 @@
     }
   },
   {
-    "name": "MNE Tutorials (__PKG_VERSION__)",
+    "name": "Tutorials (MNE)",
     "description": "MNE-Python online tutorials",
     "icon": "{{ MENU_DIR }}/mne_web.{{ ICON_EXT }}",
     "activate": false,
@@ -131,7 +131,7 @@
     }
   },
   {
-    "name": "MNE User Forum (__PKG_VERSION__)",
+    "name": "User Forum (MNE)",
     "description": "MNE-Python forum for discussions, problem solving, and information exchange",
     "icon": "{{ MENU_DIR }}/mne_forum.{{ ICON_EXT }}",
     "activate": false,
