@@ -1,7 +1,7 @@
 :: This is used to initialize the bash prompt on Windows.
 @ECHO OFF
 
-call {{ SCRIPTS_DIR }}\\activate.bat
+call %SCRIPTS_DIR%\Activate.bat
 FOR /F "tokens=*" %%g IN ('python --version') do (SET PYVER=%%g)
 FOR /F "tokens=*" %%g IN ('python --version') do (SET PYPATH=%%g)
 FOR /F "tokens=*" %%g IN ('mne --version') do (SET MNEVER=%%g)
