@@ -1,4 +1,4 @@
-#!/bin/bash -ef
+#!/bin/bash
 
 # This is used to initialize the bash prompt on macOS and Linux.
 
