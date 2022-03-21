@@ -1,6 +1,6 @@
 {% set name = "mne-python" %}
-{% set version = "0.24.1" %}
-{% set sha256 = "38cbffd03a6ad0e83ef4a964ac9910a37d164c37fcc84894e39ed0cdf805300d" %}
+{% set version = "1.0.0" %}
+{% set sha256 = "1302a735368abf200f42fb43e7f786bd0fa35da2a91b1659c30ae6241edea498" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: mne-base
@@ -34,6 +34,9 @@ outputs:
         - scipy >=1.2.0
         - pooch >=1.5
         - tqdm
+        - decorator
+        - packaging
+        - jinja2
 
     test:
       requires:
@@ -75,7 +78,6 @@ outputs:
         - mffpy >=0.5.7
         - imageio
         - imageio-ffmpeg >=0.4.1
-        - traits
         - traitlets
         - traitsui
         - pyface
