@@ -125,6 +125,7 @@ outputs:
         # Use hash as separator, as PREFIX contains forward slashes!
         - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.applescript" > "{{ PREFIX }}/Menu/mne_open_prompt.applescript"  # for macOS
         - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.sh" > "{{ PREFIX }}/Menu/mne_open_prompt.sh"                    # for Linux
+        - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.bat" > "{{ PREFIX }}/Menu/mne_open_prompt.bat"                  # for Windows
 
         # System info
         - cp "{{ RECIPE_DIR }}/menu/info.icns" "{{ PREFIX }}/Menu/mne_info.icns"
@@ -151,6 +152,7 @@ outputs:
         - test -f ${CONDA_PREFIX}/Menu/mne_sys_info.py
         - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.applescript
         - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.sh
+        - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.bat
         # Check we didn't forget any icons
         - test `ls ${CONDA_PREFIX}/Menu/mne_spyder.*  | wc -l` -eq 3
         - test `ls ${CONDA_PREFIX}/Menu/mne_console.* | wc -l` -eq 3

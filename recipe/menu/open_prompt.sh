@@ -2,7 +2,7 @@
 
 # This is used to initialize the bash prompt on macOS and Linux.
 
-if [ -f ~/.bashrc ]; then
+if [[ -f ~/.bashrc ]] && [[ ${OSTYPE} != 'darwin'* ]]; then
     source ~/.bashrc
 fi
 source __PREFIX__/bin/activate
