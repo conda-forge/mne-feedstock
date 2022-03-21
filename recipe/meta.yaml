@@ -104,6 +104,7 @@ outputs:
         - python >=3.7
         - mne-base
         - spyder
+        - bash
 
     build:
       noarch: python
