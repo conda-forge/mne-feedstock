@@ -96,24 +96,6 @@
     }
   },
   {
-    "name": "Bash Prompt (MNE)",
-    "description": "MNE-Python Bash prompt",
-    "icon": "{{ MENU_DIR }}/mne_console.{{ ICON_EXT }}",
-    "activate": true,
-    "terminal": true,
-    "command": ["will be overridden in platforms section"],
-    "platforms": {
-      "win": {
-        "command": [
-          "{{ SCRIPTS_DIR }}\\bash",
-          "--init-file",
-          "{{ MENU_DIR }}/mne_open_prompt.sh"
-        ],
-        "desktop": false
-      }
-    }
-  },
-  {
     "name": "Tutorials (MNE)",
     "description": "MNE-Python online tutorials",
     "icon": "{{ MENU_DIR }}/mne_web.{{ ICON_EXT }}",
