@@ -13,10 +13,12 @@ Development: https://github.com/mne-tools/mne-python
 
 Documentation: http://mne.tools
 
-`mne-base` contains the basic functionality for data analysis and 2D
-visualization. For full functionality, including 3D visualization,
-use the `mne` package instead. `mne-installer-menus` is only used by the
-standalone installers and should not be installed manually.
+The main package for MNE-Python is named `mne` in conda-forge and should
+be suitable for most users. The conda recipe produces the following:
+
+- `mne`: should be installed for full functionality including 3D visualization.
+- `mne-base`: only pulls dependencies for basic functionality and 2D visualization.
+- `mne-installer-menus`: should not be installed manually, as it is only meant to be used by the standalone installers.
 
 
 Current build status
