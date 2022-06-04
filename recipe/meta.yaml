@@ -1,5 +1,5 @@
 {% set name = "mne-python" %}
-{% set version = "1.0dev0" %}
+{% set version = "1.1dev0" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220319
+  number: 20220604
 
 outputs:
   - name: mne-base
@@ -29,8 +29,8 @@ outputs:
         - python >=3.7
         - setuptools
         - matplotlib-base >=3.1.0
-        - numpy >=1.15.4
-        - scipy >=1.1.0
+        - numpy >=1.18.1
+        - scipy >=1.4.1
         - pooch >=1.5
         - tqdm
         - decorator
@@ -83,6 +83,8 @@ outputs:
         - mne-qt-browser
         - ipywidgets
         - ipyvtklink
+        - edflib-python
+        - eeglabio
 
     test:
       requires:
@@ -102,7 +104,6 @@ outputs:
       run:
         - python >=3.7
         - mne-base
-        - spyder
 
     build:
       noarch: python
@@ -124,6 +125,7 @@ outputs:
         # Use hash as separator, as PREFIX contains forward slashes!
         - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.applescript" > "{{ PREFIX }}/Menu/mne_open_prompt.applescript"  # for macOS
         - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.sh" > "{{ PREFIX }}/Menu/mne_open_prompt.sh"                    # for Linux
+        - sed "s#__PREFIX__#{{ PREFIX }}#" "{{ RECIPE_DIR }}/menu/open_prompt.bat" > "{{ PREFIX }}/Menu/mne_open_prompt.bat"                  # for Windows
 
         # System info
         - cp "{{ RECIPE_DIR }}/menu/info.icns" "{{ PREFIX }}/Menu/mne_info.icns"
@@ -150,6 +152,7 @@ outputs:
         - test -f ${CONDA_PREFIX}/Menu/mne_sys_info.py
         - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.applescript
         - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.sh
+        - test -f ${CONDA_PREFIX}/Menu/mne_open_prompt.bat
         # Check we didn't forget any icons
         - test `ls ${CONDA_PREFIX}/Menu/mne_spyder.*  | wc -l` -eq 3
         - test `ls ${CONDA_PREFIX}/Menu/mne_console.* | wc -l` -eq 3
@@ -165,10 +168,12 @@ about:
   license_file: LICENSE.txt
   summary: MNE-Python is a software for MEG and EEG data analysis.
   description: |
-    `mne-base` contains the basic functionality for data analysis and 2D
-    visualization. For full functionality, including 3D visualization,
-    use the `mne` package instead. `mne-installer-menus` is only used by the
-    standalone installers and should not be installed manually.
+    The main package for MNE-Python is named `mne` in conda-forge and should
+    be suitable for most users. The conda recipe produces the following:
+
+    - `mne`: should be installed for full functionality including 3D visualization.
+    - `mne-base`: only pulls dependencies for basic functionality and 2D visualization.
+    - `mne-installer-menus`: should not be installed manually, as it is only meant to be used by the standalone installers.
   doc_url: http://mne.tools
   dev_url: https://github.com/mne-tools/mne-python
 

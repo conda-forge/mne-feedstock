@@ -69,7 +69,7 @@
         "command": [
           "%SystemRoot%\\system32\\cmd.exe",
           "/K",
-          "{{ SCRIPTS_DIR }}\\activate.bat"
+          "{{ MENU_DIR }}\\mne_open_prompt.bat"
         ],
         "desktop": false
       },
