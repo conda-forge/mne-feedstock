@@ -24,6 +24,9 @@ outputs:
         - mne = mne.commands.utils:main
 
     requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
         - python >=3.7
         - pip
