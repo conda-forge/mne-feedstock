@@ -11,11 +11,12 @@ source:
   git_rev: main
 
 build:
-  number: 20220604
+  number: 20220619
 
 outputs:
   - name: mne-base
     build:
+      skip: True  # [not linux]
       noarch: python
       script: python -m pip install --no-deps . -vv
       entry_points:
@@ -47,12 +48,10 @@ outputs:
         - mne --version
 
   - name: mne
-    build:
-      noarch: python
-
     requirements:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+        - pyobjc-framework-cocoa  # [osx]  # for setting Dock icons etc.
         - matplotlib >=3.1.0
         - seaborn
         - jupyter
@@ -106,6 +105,7 @@ outputs:
         - mne-base
 
     build:
+      skip: True  # [not linux]
       noarch: python
       script:
         - mkdir -p "{{ PREFIX }}/Menu"
