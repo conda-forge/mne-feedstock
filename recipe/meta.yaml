@@ -98,7 +98,8 @@ outputs:
   - name: mne-installer-menus
     requirements:
       build:
-        - sed
+        - m2-sed  # [win]
+        - sed     # [not win]
       host:
         - python >=3.7
       run:
