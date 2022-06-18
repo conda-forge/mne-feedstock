@@ -16,7 +16,6 @@ build:
 outputs:
   - name: mne-base
     build:
-      skip: True  # [not linux]
       noarch: python
       script: python -m pip install --no-deps . -vv
       entry_points:
