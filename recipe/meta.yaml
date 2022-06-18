@@ -17,6 +17,7 @@ build:
 outputs:
   - name: mne-base
     build:
+      skip: True  # [not linux]
       noarch: python
       script: python -m pip install --no-deps . -vv
       entry_points:
@@ -98,8 +99,7 @@ outputs:
   - name: mne-installer-menus
     requirements:
       build:
-        - m2-sed  # [win]
-        - sed     # [not win]
+        - sed
       host:
         - python >=3.7
       run:
@@ -107,6 +107,7 @@ outputs:
         - mne-base
 
     build:
+      skip: True  # [not linux]
       noarch: python
       script:
         - mkdir -p "{{ PREFIX }}/Menu"
