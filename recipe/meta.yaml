@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: mne-base
@@ -48,12 +48,11 @@ outputs:
         - mne --version
 
   - name: mne
-    build:
-      noarch: python
 
     requirements:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+        - pyobjc-framework-cocoa  # [osx]  # for setting Dock icons etc.
         - matplotlib >=3.1.0
         - seaborn
         - jupyter
