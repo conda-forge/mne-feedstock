@@ -186,3 +186,5 @@ extra:
     - larsoner
     - christianbrodbeck
     - hoechenberger
+  skip-lints:
+    - uses_matplotlib
