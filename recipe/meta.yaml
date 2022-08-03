@@ -1,6 +1,6 @@
 {% set name = "mne-python" %}
-{% set version = "1.0.3" %}
-{% set sha256 = "e5a2e19910f964f1264e70d9e9f0dbabb367263cb61e3e79e863092cf7c5cfed" %}
+{% set version = "1.1.0" %}
+{% set sha256 = "8dcb84ffea13a5fd93668bac4d521fcf71c9fa4a5f05d4c663595069b3701c19" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 3
+  number: 0
 
 outputs:
   - name: mne-base
