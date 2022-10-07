@@ -1,5 +1,5 @@
 {% set name = "mne-python" %}
-{% set version = "1.1dev0" %}
+{% set version = "1.2dev0" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 20220728
+  number: 20221007
 
 outputs:
   - name: mne-base
