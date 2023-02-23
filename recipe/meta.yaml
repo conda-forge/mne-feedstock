@@ -40,7 +40,6 @@ outputs:
         - decorator
         - packaging
         - jinja2
-        - pkg_resources
 
     test:
       requires:
