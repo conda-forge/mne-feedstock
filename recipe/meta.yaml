@@ -1,5 +1,5 @@
 {% set name = "mne-python" %}
-{% set version = "1.2dev0" %}
+{% set version = "1.4dev0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   git_url: https://github.com/mne-tools/mne-python.git
-  git_depth: 1
+  git_depth: 0
   git_rev: main
 
 build:
-  number: 20221007
+  number: 20230410
 
 outputs:
   - name: mne-base
@@ -26,10 +26,13 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
-        - python >=3.7
+        - python >=3.8
         - pip
+        - setuptools >=45
+        - setuptools_scm >=6.2
+        - git
       run:
-        - python >=3.7
+        - python >=3.8
         - setuptools
         - matplotlib-base >=3.1.0
         - numpy >=1.18.1
@@ -39,6 +42,7 @@ outputs:
         - decorator
         - packaging
         - jinja2
+        - importlib_resources >=5.10.2  # [py<=39]
 
     test:
       requires:
@@ -54,7 +58,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
-        - pyobjc-framework-cocoa  # [osx]  # for setting Dock icons etc.
+        - pyobjc-framework-cocoa >=5.2.0  # [osx]  # for setting Dock icons etc
         - matplotlib >=3.1.0
         - seaborn
         - jupyter
@@ -69,7 +73,7 @@ outputs:
         - scikit-learn >=0.20.2
         - python-picard
         - numba
-        - vtk >=9.0.1
+        - vtk >=9.2
         - pyvista >=0.32
         - pyvistaqt >=0.4
         - statsmodels
@@ -87,6 +91,7 @@ outputs:
         - ipyvtklink
         - edflib-python
         - eeglabio
+        - openmeeg >=2.5.5
 
     test:
       requires:
@@ -102,13 +107,13 @@ outputs:
       build:
         - sed
       host:
-        - python >=3.7
+        - python >=3.8
       run:
-        - python >=3.7
+        - python >=3.8
         - mne-base
 
     build:
-      skip: True  # [not linux]
+      skip: true  # [not linux]
       noarch: python
       script:
         - mkdir -p "{{ PREFIX }}/Menu"
