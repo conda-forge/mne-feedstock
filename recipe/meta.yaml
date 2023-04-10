@@ -30,6 +30,7 @@ outputs:
         - pip
         - setuptools >=45
         - setuptools_scm >=6.2
+        - git
       run:
         - python >=3.8
         - setuptools
