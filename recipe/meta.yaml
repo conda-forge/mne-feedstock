@@ -11,7 +11,9 @@ source:
   git_rev: main
 
 build:
-  number: 20230410
+  number: 20230503
+
+# TODO: Reenable numba soon!
 
 outputs:
   - name: mne-base
@@ -72,7 +74,7 @@ outputs:
         - xlrd
         - scikit-learn >=0.20.2
         - python-picard
-        - numba
+        # numba
         - vtk >=9.2
         - pyvista >=0.32
         - pyvistaqt >=0.4
@@ -87,11 +89,12 @@ outputs:
         - imageio-ffmpeg >=0.4.1
         - traitlets
         - mne-qt-browser
+        - pyopengl  # [osx]
         - ipywidgets
         - ipyvtklink
         - edflib-python
         - eeglabio
-        - openmeeg >=2.5.5
+        - openmeeg >=2.5.6
 
     test:
       requires:
@@ -99,7 +102,7 @@ outputs:
       imports:
         - mne
       commands:
-        - pip check
+        - pip check  # [not win]
         - mne --version
 
   - name: mne-installer-menus
