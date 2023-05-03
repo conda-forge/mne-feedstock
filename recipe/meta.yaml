@@ -89,11 +89,12 @@ outputs:
         - imageio-ffmpeg >=0.4.1
         - traitlets
         - mne-qt-browser
+        - pyopengl  # [osx]
         - ipywidgets
         - ipyvtklink
         - edflib-python
         - eeglabio
-        - openmeeg >=2.5.5
+        - openmeeg >=2.5.6
 
     test:
       requires:
@@ -101,7 +102,7 @@ outputs:
       imports:
         - mne
       commands:
-        - pip check
+        - pip check  # [not win]
         - mne --version
 
   - name: mne-installer-menus
