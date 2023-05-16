@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: mne-base
@@ -35,9 +35,9 @@ outputs:
       run:
         - python >=3.8
         - setuptools
-        - matplotlib-base >=3.1.0
+        - matplotlib-base >=3.4.0
         - numpy >=1.18.1
-        - scipy >=1.4.1
+        - scipy >=1.6.3
         - pooch >=1.5
         - tqdm
         - decorator
@@ -60,7 +60,7 @@ outputs:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
         - pyobjc-framework-cocoa >=5.2.0  # [osx]  # for setting Dock icons etc
-        - matplotlib >=3.1.0
+        - matplotlib >=3.4.0
         - seaborn
         - jupyter
         - h5io
