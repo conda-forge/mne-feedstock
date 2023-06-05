@@ -51,7 +51,7 @@ outputs:
       imports:
         - mne
       commands:
-        - pip check
+        - pip check  # [not win]
         - mne --version
 
   - name: mne
