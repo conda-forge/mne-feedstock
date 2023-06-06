@@ -49,10 +49,10 @@ outputs:
       requires:
         - pip
       imports:
-        - mne
+        - mne  # [not win]
       commands:
         - pip check  # [not win]
-        - mne --version
+        - mne --version  # [not win]
 
   - name: mne
 
