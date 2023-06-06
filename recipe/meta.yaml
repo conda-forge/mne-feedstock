@@ -46,13 +46,14 @@ outputs:
         - importlib_resources >=5.10.2  # [py<=39]
 
     test:
-      requires:
-        - pip
       imports:
-        - mne  # [not win]
+        - mne
       commands:
         - pip check  # [not win]
-        - mne --version  # [not win]
+        - mne --version
+      requires:
+        - pip
+        - setuptools
 
   - name: mne
 
@@ -95,13 +96,14 @@ outputs:
         - openmeeg >=2.5.6
 
     test:
-      requires:
-        - pip
       imports:
         - mne
       commands:
-        - pip check
+        - pip check  # [not win]
         - mne --version
+      requires:
+        - pip
+        - setuptools
 
   - name: mne-installer-menus
     requirements:
