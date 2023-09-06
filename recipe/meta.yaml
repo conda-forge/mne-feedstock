@@ -1,6 +1,6 @@
 {% set name = "mne-python" %}
-{% set version = "1.5.0" %}
-{% set sha256 = "74e8d9d96fe9a95c301f0985c458ffdd44eb12c8fab7905c2e81f5b24574d8f0" %}
+{% set version = "1.5.1" %}
+{% set sha256 = "557569058e38698e57749048ec1b8678c99e6b7583d3ae31c356463ff83ca734" %}
 
 package:
   name: {{ name|lower }}
@@ -90,7 +90,9 @@ outputs:
         - traitlets
         - mne-qt-browser
         - ipywidgets
-        - ipyvtklink
+        - trame
+        - trame-vtk
+        - trame-vuetify
         - edflib-python
         - eeglabio
         - openmeeg >=2.5.6
