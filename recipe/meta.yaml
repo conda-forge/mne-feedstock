@@ -35,15 +35,17 @@ outputs:
       run:
         - python >=3.8
         - setuptools
-        - matplotlib-base >=3.4.0
-        - numpy >=1.18.1
-        - scipy >=1.6.3
+        - matplotlib-base >=3.5.0
+        - numpy >=1.21.2
+        - scipy >=1.7.1
         - pooch >=1.5
         - tqdm
         - decorator
         - packaging
         - jinja2
         - importlib_resources >=5.10.2  # [py<=39]
+        - lazy_loader >=0.3
+        - defusedxml
 
     test:
       imports:
