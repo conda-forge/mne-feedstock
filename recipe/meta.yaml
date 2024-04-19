@@ -1,6 +1,8 @@
 {% set name = "mne-python" %}
-{% set version = "1.6.1" %}
-{% set sha256 = "e4f5683d01cef675eddad788bdb6b44cc015dff0fb1ddfca3c4105edfb757ef8" %}
+{% set version = "1.7.0" %}
+{% set sha256 = "a6c8fce601e3b3559875825f527da7c72dbd19fcb9d206692f94c98ae5f0fce0" %}
+{% set pymin = "3.9" %}
+{% set build = "0" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +14,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: {{ build }}
 
 outputs:
   - name: mne-base
@@ -27,13 +29,13 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
-        - python >=3.8
+        - python >={{ pymin }}
         - pip
         - setuptools >=45
         - setuptools_scm >=6.2
         - git
       run:
-        - python >=3.8
+        - python >={{ pymin }}
         - setuptools
         - matplotlib-base >=3.5.0
         - numpy >=1.21.2
@@ -45,7 +47,6 @@ outputs:
         - jinja2
         - importlib_resources >=5.10.2  # [py<=39]
         - lazy_loader >=0.3
-        - defusedxml
 
     test:
       imports:
@@ -63,7 +64,6 @@ outputs:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
         - pyobjc-framework-cocoa >=5.2.0  # [osx]  # for setting Dock icons etc
-        - matplotlib >=3.4.0
         - seaborn
         - jupyter
         - h5io
@@ -98,6 +98,7 @@ outputs:
         - edflib-python
         - eeglabio
         - openmeeg >=2.5.6
+        - defusedxml
 
     test:
       imports:
@@ -114,9 +115,9 @@ outputs:
       build:
         - sed
       host:
-        - python >=3.8
+        - python >={{ pymin }}
       run:
-        - python >=3.8
+        - python >={{ pymin }}
         - mne-base
 
     build:
