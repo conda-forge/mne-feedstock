@@ -9,3 +9,7 @@ github:
 test: native_and_emulated
 conda_build:
   pkg_format: '2'
+noarch_platforms:
+  - linux_64
+  - osx_64
+

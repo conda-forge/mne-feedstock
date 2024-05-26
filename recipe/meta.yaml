@@ -2,7 +2,7 @@
 {% set version = "1.7.0" %}
 {% set sha256 = "a6c8fce601e3b3559875825f527da7c72dbd19fcb9d206692f94c98ae5f0fce0" %}
 {% set pymin = "3.9" %}
-{% set build = 1 %}
+{% set build = 2 %}
 
 package:
   name: {{ name|lower }}
@@ -59,10 +59,13 @@ outputs:
         - setuptools
 
   - name: mne
+    build:
+      noarch: python
 
     requirements:
       run:
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
+        - __osx  # [osx]
         - pyobjc-framework-cocoa >=5.2.0  # [osx]  # for setting Dock icons etc
         - seaborn
         - jupyter
