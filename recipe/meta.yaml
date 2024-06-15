@@ -1,8 +1,8 @@
 {% set name = "mne-python" %}
-{% set version = "1.7.0" %}
+{% set version = "1.7.1" %}
 {% set sha256 = "a6c8fce601e3b3559875825f527da7c72dbd19fcb9d206692f94c98ae5f0fce0" %}
 {% set pymin = "3.9" %}
-{% set build = 3 %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
