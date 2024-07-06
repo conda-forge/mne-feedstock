@@ -58,6 +58,22 @@ outputs:
   - name: mne
     build:
       noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage('mne-noqt', max_pin="x.x.x.x") }}
+        - pyqt
+    test:
+      imports:
+        - mne
+      commands:
+        - pip check  # [not win]
+        - mne --version
+      requires:
+        - pip
+
+  - name: mne-noqt
+    build:
+      noarch: python
 
     requirements:
       run:
