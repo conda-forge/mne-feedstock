@@ -4,6 +4,13 @@
 {% set pymin = "3.9" %}
 {% set build = 1 %}
 
+# Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
+# PySide6 is lower priority than PyQt5 for backward compat (e.g., with matplotlib,
+# mayavi, etc.) until the ecosystem updates
+{% set build = build + 100 %}  # [build_variant == "pyside6"]
+{% set build = build + 200 %}  # [build_variant == "pyqt"]
+{% set build_string = '{}_py{}h{}_{}'.format(build_variant, CONDA_PY, PKG_HASH, build) %}
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -58,22 +65,6 @@ outputs:
   - name: mne
     build:
       noarch: python
-    requirements:
-      run:
-        - {{ pin_subpackage('mne-noqt', max_pin="x.x.x.x") }}
-        - pyqt
-    test:
-      imports:
-        - mne
-      commands:
-        - pip check  # [not win]
-        - mne --version
-      requires:
-        - pip
-
-  - name: mne-noqt
-    build:
-      noarch: python
 
     requirements:
       run:
@@ -99,6 +90,8 @@ outputs:
         - pyvistaqt >=0.4
         - statsmodels
         - numexpr
+        - pyqt  # [build_variant == "pyqt"]
+        - pyside6  # [build_variant == "pyside6"]
         - pillow
         - joblib
         - psutil
