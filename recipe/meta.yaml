@@ -9,7 +9,6 @@
 # mayavi, etc.) until the ecosystem updates
 {% set build = build + 100 %}  # [build_variant == "pyside6"]
 {% set build = build + 200 %}  # [build_variant == "pyqt"]
-{% set build_string = '{}_h{}_{}'.format(build_variant, PKG_HASH, build) %}
 
 package:
   name: {{ name|lower }}
@@ -22,7 +21,7 @@ source:
 
 build:
   number: {{ build }}
-  string: {{ build_string }}
+  string: "{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"
 
 outputs:
   - name: mne-base
@@ -65,7 +64,7 @@ outputs:
 
   - name: mne
     build:
-      string: {{ build_string }}
+      string: "{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"
       noarch: python
 
     requirements:
