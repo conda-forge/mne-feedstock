@@ -9,7 +9,7 @@
 # mayavi, etc.) until the ecosystem updates
 {% set build = build + 100 %}  # [build_variant == "pyside6"]
 {% set build = build + 200 %}  # [build_variant == "pyqt"]
-{% set build_string = '{}_h{}_{}'.format(build_variant, CONDA_PY, PKG_HASH, build) %}
+{% set build_string = '{}_h{}_{}'.format(build_variant, PKG_HASH, build) %}
 
 package:
   name: {{ name|lower }}
