@@ -28,7 +28,6 @@ outputs:
   - name: mne-base
     build:
       noarch: python
-      string: {{ build_string }}
       script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
