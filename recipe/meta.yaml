@@ -21,7 +21,7 @@ source:
 
 build:
   number: {{ build }}
-  string: "{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"
+  string: "{{ build_variant }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build }}"
 
 outputs:
   - name: mne-base
@@ -64,7 +64,7 @@ outputs:
 
   - name: mne
     build:
-      string: "{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"
+      string: "{{ build_variant }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build }}"
       noarch: python
 
     requirements:
