@@ -2,14 +2,13 @@
 {% set version = "1.7.1" %}
 {% set sha256 = "a87bbc998b792532d2c87add8b0f7bbf28a4d8cf5db1bdfb6d6e260791754498" %}
 {% set pymin = "3.9" %}
-{% set build = 1 %}
+{% set build = 2 %}
 
 # Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
 # PySide6 is lower priority than PyQt5 for backward compat (e.g., with matplotlib,
 # mayavi, etc.) until the ecosystem updates
 {% set build = build + 100 %}  # [build_variant == "pyside6"]
 {% set build = build + 200 %}  # [build_variant == "pyqt"]
-{% set build_string = '{}_py{}h{}_{}'.format(build_variant, CONDA_PY, PKG_HASH, build) %}
 
 package:
   name: {{ name|lower }}
@@ -22,7 +21,7 @@ source:
 
 build:
   number: {{ build }}
-  string: {{ build_string }}
+  string: "{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"
 
 outputs:
   - name: mne-base
@@ -65,6 +64,7 @@ outputs:
 
   - name: mne
     build:
+      string: "{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"
       noarch: python
 
     requirements:
