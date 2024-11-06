@@ -2,7 +2,7 @@
 {% set version = "1.8.0" %}
 {% set sha256 = "5247d92ebbc8e9871edca50d8071c024727249cb72ca1aba5fad1ee8ffa78312" %}
 {% set pymin = "3.9" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 # Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
 # PySide6 is lower priority than PyQt5 for backward compat (e.g., with matplotlib,
