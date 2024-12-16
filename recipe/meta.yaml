@@ -2,7 +2,7 @@
 {% set version = "1.8.0" %}
 {% set sha256 = "5247d92ebbc8e9871edca50d8071c024727249cb72ca1aba5fad1ee8ffa78312" %}
 {% set pymin = "3.9" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 # Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
 # PySide6 is lower priority than PyQt5 for backward compat (e.g., with matplotlib,
@@ -16,7 +16,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/m/mne/mne-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/m/mne/mne-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -36,12 +36,12 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
-        - python >={{ pymin }}
+        - python {{ python_min }}
         - pip
         - hatchling
         - hatch-vcs
       run:
-        - python >={{ pymin }}
+        - python >={{ python_min }}
         - matplotlib-base >=3.5.0
         - numpy >=1.21.2
         - scipy >=1.7.1
@@ -125,9 +125,9 @@ outputs:
       build:
         - sed
       host:
-        - python >={{ pymin }}
+        - python {{ python_min }}
       run:
-        - python >={{ pymin }}
+        - python >={{ python_min }}
         - mne-base
 
     build:
@@ -173,6 +173,8 @@ outputs:
         - cp "{{ RECIPE_DIR }}/menu/mne.png" "{{ PREFIX }}/Menu/mne.png"
 
     test:
+      requires:
+        - python {{ python_min }}
       commands:
         - test -f ${CONDA_PREFIX}/Menu/mne.json
         - test -f ${CONDA_PREFIX}/Menu/mne_sys_info.py
