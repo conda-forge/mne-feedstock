@@ -21,7 +21,6 @@ source:
 
 build:
   number: {{ build }}
-  noarch: python
 
 outputs:
   - name: mne-base
@@ -32,6 +31,9 @@ outputs:
         - mne = mne.commands.utils:main
 
     requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
         - python {{ python_min }}
         - pip
@@ -53,7 +55,7 @@ outputs:
       imports:
         - mne
       commands:
-        - pip check
+        - pip check  # [not win]
         - mne --version
       requires:
         - python {{ python_min }}
@@ -116,7 +118,7 @@ outputs:
       imports:
         - mne
       commands:
-        - pip check
+        - pip check  # [not win]
         - mne --version
       requires:
         - python {{ python_min }}
