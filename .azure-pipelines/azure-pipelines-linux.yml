@@ -8,12 +8,36 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_build_variantpyqt:
-        CONFIG: linux_64_build_variantpyqt
+      linux_64_build_variantpyqtpython3.10.____cpython:
+        CONFIG: linux_64_build_variantpyqtpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_build_variantpyside6:
-        CONFIG: linux_64_build_variantpyside6
+      linux_64_build_variantpyqtpython3.11.____cpython:
+        CONFIG: linux_64_build_variantpyqtpython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_build_variantpyqtpython3.12.____cpython:
+        CONFIG: linux_64_build_variantpyqtpython3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_build_variantpyqtpython3.9.____cpython:
+        CONFIG: linux_64_build_variantpyqtpython3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_build_variantpyside6python3.10.____cpython:
+        CONFIG: linux_64_build_variantpyside6python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_build_variantpyside6python3.11.____cpython:
+        CONFIG: linux_64_build_variantpyside6python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_build_variantpyside6python3.12.____cpython:
+        CONFIG: linux_64_build_variantpyside6python3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_build_variantpyside6python3.9.____cpython:
+        CONFIG: linux_64_build_variantpyside6python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
