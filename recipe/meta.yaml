@@ -2,6 +2,7 @@
 {% set version = "1.9.0" %}
 {% set sha256 = "101967698b005a7f9071586e0469aebc83fe06f48717a95f3382a6f99c591162" %}
 {% set build = 2 %}
+{% set python_min = "3.10" %}
 
 # Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
 # PySide6 is lower priority than PyQt5 for backward compat (e.g., with matplotlib,
@@ -59,6 +60,7 @@ outputs:
         - pip check  # [not win]
         - mne --version
       requires:
+        - python {{ python_min }}
         - pip
 
   - name: mne
@@ -67,7 +69,10 @@ outputs:
       noarch: python
 
     requirements:
+      host:
+        - python {{ python_min }}
       run:
+        - python >={{ python_min }}
         - {{ pin_subpackage('mne-base', max_pin="x.x.x.x") }}
         - __osx  # [osx]
         - pyobjc-framework-cocoa >=5.2.0  # [osx]  # for setting Dock icons etc
@@ -117,6 +122,7 @@ outputs:
         - pip check  # [not win]
         - mne --version
       requires:
+        - python {{ python_min }}
         - pip
 
   - name: mne-installer-menus
