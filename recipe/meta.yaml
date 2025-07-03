@@ -24,7 +24,6 @@ build:
   noarch: python
   string: "osx_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [osx]
   string: "linux_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [linux]
-  string: "win_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [win]
 
 outputs:
   - name: mne-base
@@ -57,7 +56,7 @@ outputs:
       imports:
         - mne
       commands:
-        - pip check  # [not win]
+        - pip check
         - mne --version
       requires:
         - python {{ python_min }}
@@ -119,7 +118,7 @@ outputs:
       imports:
         - mne
       commands:
-        - pip check  # [not win]
+        - pip check
         - mne --version
       requires:
         - python {{ python_min }}
