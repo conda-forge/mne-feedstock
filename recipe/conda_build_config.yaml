@@ -1,5 +1,3 @@
 build_variant:
   - "pyqt"
   - "pyside6"
-python_min:
-  - "3.10"
