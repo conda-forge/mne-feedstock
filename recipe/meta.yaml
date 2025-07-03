@@ -22,8 +22,6 @@ source:
 build:
   number: {{ build }}
   noarch: python
-  string: "osx_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [osx]
-  string: "linux_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [linux]
 
 outputs:
   - name: mne-base
@@ -49,7 +47,6 @@ outputs:
         - decorator
         - packaging
         - jinja2
-        - importlib_resources >=5.10.2  # [py<=39]
         - lazy_loader >=0.3
 
     test:
@@ -64,7 +61,8 @@ outputs:
 
   - name: mne
     build:
-      string: "{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"
+      string: "osx_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [osx]
+      string: "linux_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [linux]
       noarch: python
 
     requirements:
