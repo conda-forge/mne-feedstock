@@ -18,7 +18,6 @@ be suitable for most users. The conda recipe produces the following:
 
 - `mne`: should be installed for full functionality including 3D visualization.
 - `mne-base`: only pulls dependencies for basic functionality and 2D visualization.
-- `mne-installer-menus`: should not be installed manually, as it is only meant to be used by the standalone installers.
 
 
 Current build status
@@ -41,7 +40,6 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-mne-green.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-mne--base-green.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-mne--installer--menus-green.svg)](https://anaconda.org/conda-forge/mne-installer-menus) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-installer-menus.svg)](https://anaconda.org/conda-forge/mne-installer-menus) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-installer-menus.svg)](https://anaconda.org/conda-forge/mne-installer-menus) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-installer-menus.svg)](https://anaconda.org/conda-forge/mne-installer-menus) |
 
 Installing mne-python
 =====================
@@ -53,16 +51,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `mne, mne-base, mne-installer-menus` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `mne, mne-base` can be installed with `conda`:
 
 ```
-conda install mne mne-base mne-installer-menus
+conda install mne mne-base
 ```
 
 or with `mamba`:
 
 ```
-mamba install mne mne-base mne-installer-menus
+mamba install mne mne-base
 ```
 
 It is possible to list all of the versions of `mne` available on your platform with `conda`:
