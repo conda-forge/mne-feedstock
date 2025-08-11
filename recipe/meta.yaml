@@ -1,6 +1,6 @@
 {% set name = "mne-python" %}
-{% set version = "1.10.0" %}
-{% set sha256 = "70a615dcfc2fdde891d2e5d2d714c352ffc64c52685ea6c1b031a6c189f6d8a9" %}
+{% set version = "1.10.1" %}
+{% set sha256 = "a93e3d772d551e43ec5ddcd3495fffe0f98e3e384045bcd96497636e86a32a0b" %}
 {% set build = 0 %}
 {% set python_min = "3.10" %}
 
