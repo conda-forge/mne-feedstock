@@ -1,3 +1,5 @@
 build_variant:
   - "pyqt"
   - "pyside6"
+python:  # we only build on the min platform, like noarch (but noarch doesn't support selectors!)
+  - "3.10"
