@@ -21,19 +21,16 @@ source:
 
 build:
   number: {{ build }}
+  python_version_independent: true
 
 outputs:
   - name: mne-base
     build:
-      noarch: python
       script: python -m pip install --no-deps . -vv
       entry_points:
         - mne = mne.commands.utils:main
 
     requirements:
-      build:
-        - python                                 # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
         - python {{ python_min }}
         - pip
@@ -65,7 +62,6 @@ outputs:
     build:
       string: "osx_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [osx]
       string: "linux_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [linux]
-      noarch: python
 
     requirements:
       host:
