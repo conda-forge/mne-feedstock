@@ -108,7 +108,7 @@ outputs:
         - trame
         - trame-vtk
         - trame-vuetify
-        - edfio >=0.2.1
+        - edfio >=0.4.10
         - antio >=0.5
         - eeglabio
         - pybv
