@@ -21,7 +21,7 @@ source:
 
 build:
   number: {{ build }}
-  python_version_independent: true
+  skip: true  # [py>310]  # only need to build on 3.10
 
 outputs:
   - name: mne-base
