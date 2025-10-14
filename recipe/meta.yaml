@@ -114,7 +114,7 @@ outputs:
         - defusedxml
 
     test:
-      skip: True  # [linux and build_variant == "pyqt"]  # hangs during resolution on Azure
+      skip: true  # [linux and build_variant == "pyqt"]  # hangs during resolution on Azure
       imports:
         - mne
       commands:
