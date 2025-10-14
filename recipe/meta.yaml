@@ -121,10 +121,10 @@ outputs:
         - python {{ python_min }}
         - pip
         # Help the solver, which otherwise takes forever to resolve
-        - pyqt=5.15.11  # [build_variant == "pyqt"]
-        - qt-main=5.15.2  # [build_variant == "pyqt"]
-        - pyside6=6.8.3  # [build_variant == "pyside6"]
-        - qt6-main=6.8.3  # [build_variant == "pyside6"]
+        - pyqt =5.15.11  # [build_variant == "pyqt"]
+        - qt-main =5.15.2  # [build_variant == "pyqt"]
+        - pyside6 =6.8.3  # [build_variant == "pyside6"]
+        - qt6-main =6.8.3  # [build_variant == "pyside6"]
 
 about:
   home: http://mne.tools
