@@ -117,7 +117,6 @@ outputs:
         - defusedxml
 
     test:
-      skip: true  # [linux and build_variant == "pyqt"]  # hangs during resolution on Azure
       imports:
         - mne
       commands:
@@ -126,6 +125,11 @@ outputs:
       requires:
         - python {{ python_min }}
         - pip
+        # Try to speed up the solver
+        - pyqt =5.15.11  # [build_variant == "pyqt"]
+        - qt-main =5.15.15  # [build_variant == "pyqt"]
+        - pyside6 =6.8.3  # [build_variant == "pyside6"]
+        - qt6-main =6.8.3
 
 about:
   home: http://mne.tools
