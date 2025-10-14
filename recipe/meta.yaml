@@ -1,6 +1,6 @@
 {% set name = "mne-python" %}
-{% set version = "1.10.1" %}
-{% set sha256 = "a93e3d772d551e43ec5ddcd3495fffe0f98e3e384045bcd96497636e86a32a0b" %}
+{% set version = "1.10.2" %}
+{% set sha256 = "e83610ed3fa86086c7b2006e978e2ec39d9ebc8d72e2777fde64c68674ec561f" %}
 {% set build = 0 %}
 {% set python_min = "3.10" %}
 
@@ -21,6 +21,7 @@ source:
 
 build:
   number: {{ build }}
+  skip: true  # [py>310]  # only need to build on 3.10
 
 outputs:
   - name: mne-base
@@ -63,9 +64,9 @@ outputs:
 
   - name: mne
     build:
+      noarch: python
       string: "osx_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [osx]
       string: "linux_{{ build_variant }}_h{{ PKG_HASH }}_{{ build }}"  # [linux]
-      noarch: python
 
     requirements:
       host:
@@ -108,7 +109,7 @@ outputs:
         - trame
         - trame-vtk
         - trame-vuetify
-        - edfio >=0.2.1
+        - edfio >=0.4.10
         - antio >=0.5
         - eeglabio
         - pybv
@@ -124,6 +125,11 @@ outputs:
       requires:
         - python {{ python_min }}
         - pip
+        # Try to speed up the solver
+        - pyqt =5.15.11  # [build_variant == "pyqt"]
+        - qt-main =5.15.15  # [build_variant == "pyqt"]
+        - pyside6 =6.8.3  # [build_variant == "pyside6"]
+        - qt6-main =6.8.3
 
 about:
   home: http://mne.tools
