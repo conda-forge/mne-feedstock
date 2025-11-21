@@ -1,6 +1,6 @@
 {% set name = "mne-python" %}
-{% set version = "1.10.2" %}
-{% set sha256 = "e83610ed3fa86086c7b2006e978e2ec39d9ebc8d72e2777fde64c68674ec561f" %}
+{% set version = "1.11.0" %}
+{% set sha256 = "0a89b8fc44133b81218a35cdcba74ad0f8ae2e265136249b365b9ce04864c688" %}
 {% set build = 0 %}
 {% set python_min = "3.10" %}
 
@@ -21,7 +21,7 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [py>310]  # only need to build on 3.10
+  skip: true  # [py>310]
 
 outputs:
   - name: mne-base
