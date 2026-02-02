@@ -1,14 +1,13 @@
 {% set name = "mne-python" %}
 {% set version = "1.11.0" %}
 {% set sha256 = "0a89b8fc44133b81218a35cdcba74ad0f8ae2e265136249b365b9ce04864c688" %}
-{% set build = 0 %}
+{% set build = 1 %}
 {% set python_min = "3.10" %}
 
 # Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
-# PySide6 is lower priority than PyQt5 for backward compat (e.g., with matplotlib,
-# mayavi, etc.) until the ecosystem updates
-{% set build = build + 100 %}  # [build_variant == "pyside6"]
-{% set build = build + 200 %}  # [build_variant == "pyqt"]
+# PySide6 is higher priority than PyQt5 in line with matplotlib
+{% set build = build + 200 %}  # [build_variant == "pyside6"]
+{% set build = build + 100 %}  # [build_variant == "pyqt"]
 
 package:
   name: {{ name|lower }}
