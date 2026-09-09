@@ -24,7 +24,14 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>All platforms:</td>
+    <td>
+      <a href="https://github.com/conda-forge/mne-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/mne-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
 </table>
 
 Current release info
@@ -32,7 +39,8 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-mne--python-green.svg)](https://anaconda.org/conda-forge/mne-python) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-python.svg)](https://anaconda.org/conda-forge/mne-python) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-python.svg)](https://anaconda.org/conda-forge/mne-python) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-python.svg)](https://anaconda.org/conda-forge/mne-python) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-mne-green.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-mne--base-green.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) |
 
 Installing mne-python
 =====================
@@ -51,7 +59,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install mne-python
+conda install mne mne-base
 ```
 
 </details>
@@ -60,7 +68,7 @@ conda install mne-python
 <summary>With mamba</summary>
 
 ```
-mamba install mne-python
+mamba install mne mne-base
 ```
 
 </details>
@@ -70,9 +78,9 @@ mamba install mne-python
 
 ```
 # for adding to your local project
-pixi add mne-python
+pixi add mne mne-base
 # for installing globally
-pixi global install mne-python
+pixi global install mne mne-base
 ```
 
 </details>
@@ -80,13 +88,13 @@ pixi global install mne-python
 Search package versions
 -----------------------
 
-It is possible to list all of the versions of `mne-python` available on your platform:
+It is possible to list all of the versions of `mne` available on your platform:
 
 <details>
 <summary>With conda</summary>
 
 ```
-conda search mne-python --channel conda-forge
+conda search mne --channel conda-forge
 ```
 
 </details>
@@ -95,7 +103,7 @@ conda search mne-python --channel conda-forge
 <summary>With mamba</summary>
 
 ```
-mamba search mne-python --channel conda-forge
+mamba search mne --channel conda-forge
 ```
 
 </details>
@@ -104,7 +112,7 @@ mamba search mne-python --channel conda-forge
 <summary>With pixi</summary>
 
 ```
-pixi search mne-python --channel conda-forge
+pixi search mne --channel conda-forge
 ```
 
 </details>
@@ -114,13 +122,13 @@ pixi search mne-python --channel conda-forge
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search mne-python --channel conda-forge
+mamba repoquery search mne --channel conda-forge
 
-# List packages depending on `mne-python`:
-mamba repoquery whoneeds mne-python --channel conda-forge
+# List packages depending on `mne`:
+mamba repoquery whoneeds mne --channel conda-forge
 
-# List dependencies of `mne-python`:
-mamba repoquery depends mne-python --channel conda-forge
+# List dependencies of `mne`:
+mamba repoquery depends mne --channel conda-forge
 ```
 
 </details>
