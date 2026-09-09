@@ -1,9 +1,9 @@
-About mne-python-feedstock
-==========================
+About mne-feedstock
+===================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mne-feedstock/blob/main/LICENSE.txt)
 
-Home: http://mne.tools
+Home: http://mne.tools/
 
 Package license: BSD-3-Clause
 
@@ -11,7 +11,7 @@ Summary: MNE-Python is a software for MEG and EEG data analysis.
 
 Development: https://github.com/mne-tools/mne-python
 
-Documentation: http://mne.tools
+Documentation: http://mne.tools/
 
 The main package for MNE-Python is named `mne` in conda-forge and should
 be suitable for most users. The conda recipe produces the following:
@@ -19,15 +19,15 @@ be suitable for most users. The conda recipe produces the following:
 - `mne`: should be installed for full functionality including 3D visualization.
 - `mne-base`: only pulls dependencies for basic functionality and 2D visualization.
 
-
 Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3106&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mne-feedstock?branchName=main">
+      <a href="https://github.com/conda-forge/mne-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/mne-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
     </td>
   </tr>
@@ -41,41 +41,83 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-mne-green.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-mne--base-green.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) |
 
-Installing mne-python
-=====================
+Installing mne
+==============
 
-Installing `mne-python` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `mne` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `mne, mne-base` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install mne mne-base
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install mne mne-base
 ```
 
-It is possible to list all of the versions of `mne` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add mne mne-base
+# for installing globally
+pixi global install mne mne-base
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `mne` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search mne --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search mne --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search mne --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -87,6 +129,8 @@ mamba repoquery whoneeds mne --channel conda-forge
 # List dependencies of `mne`:
 mamba repoquery depends mne --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -130,17 +174,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating mne-python-feedstock
-=============================
+Updating mne-feedstock
+======================
 
-If you would like to improve the mne-python recipe or build a new
+If you would like to improve the mne recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/mne-python-feedstock are
+Note that all branches in the conda-forge/mne-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
