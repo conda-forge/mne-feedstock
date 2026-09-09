@@ -24,13 +24,7 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
-    <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3106&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mne-feedstock?branchName=main">
-      </a>
-    </td>
-  </tr>
+<table>
 </table>
 
 Current release info
@@ -38,8 +32,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-mne-green.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne.svg)](https://anaconda.org/conda-forge/mne) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-mne--base-green.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-base.svg)](https://anaconda.org/conda-forge/mne-base) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-mne--python-green.svg)](https://anaconda.org/conda-forge/mne-python) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/mne-python.svg)](https://anaconda.org/conda-forge/mne-python) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/mne-python.svg)](https://anaconda.org/conda-forge/mne-python) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/mne-python.svg)](https://anaconda.org/conda-forge/mne-python) |
 
 Installing mne-python
 =====================
@@ -51,42 +44,86 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `mne, mne-base` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
-conda install mne mne-base
+conda install mne-python
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
-mamba install mne mne-base
+mamba install mne-python
 ```
 
-It is possible to list all of the versions of `mne` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
 
 ```
-conda search mne --channel conda-forge
+# for adding to your local project
+pixi add mne-python
+# for installing globally
+pixi global install mne-python
 ```
 
-or with `mamba`:
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `mne-python` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
-mamba search mne --channel conda-forge
+conda search mne-python --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With mamba</summary>
+
+```
+mamba search mne-python --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search mne-python --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search mne --channel conda-forge
+mamba repoquery search mne-python --channel conda-forge
 
-# List packages depending on `mne`:
-mamba repoquery whoneeds mne --channel conda-forge
+# List packages depending on `mne-python`:
+mamba repoquery whoneeds mne-python --channel conda-forge
 
-# List dependencies of `mne`:
-mamba repoquery depends mne --channel conda-forge
+# List dependencies of `mne-python`:
+mamba repoquery depends mne-python --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -158,7 +195,4 @@ Feedstock Maintainers
 * [@christianbrodbeck](https://github.com/christianbrodbeck/)
 * [@hoechenberger](https://github.com/hoechenberger/)
 * [@larsoner](https://github.com/larsoner/)
-
-
-<!-- dummy commit to enable rerendering -->
 
