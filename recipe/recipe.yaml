@@ -13,7 +13,6 @@ recipe:
   version: ${{ version }}
 
 source:
-  file_name: mne-python-${{ version }}.tar.gz
   url: https://pypi.org/packages/source/m/mne/mne-${{ version }}.tar.gz
   sha256: ${{ sha256 }}
 
