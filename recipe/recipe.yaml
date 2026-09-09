@@ -1,0 +1,178 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+# Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
+context:
+  version: "1.13.0"
+  sha256: 9308523df88bd6fdf6e60af07cdb459eac079c93dbc48032de30653e393e1344
+  # PySide6 is the binding mne[full] installs; PyQt6 is opt-in via mne[full-pyqt6]
+  build_number: ${{ 200 if build_variant == "pyside6" else 100 }}
+
+recipe:
+  name: mne-python
+  version: ${{ version }}
+
+source:
+  file_name: mne-python-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/m/mne/mne-${{ version }}.tar.gz
+  sha256: ${{ sha256 }}
+
+build:
+  number: ${{ build_number }}
+
+outputs:
+  - package:
+      name: mne-base
+    build:
+      noarch: python
+      script: python -m pip install --no-deps . -vv
+      python:
+        entry_points:
+          - mne = mne.commands.utils:main
+
+    requirements:
+      build:
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - hatchling
+        - hatch-vcs
+      run:
+        - python >=${{ python_min }}
+        - decorator >=5.1
+        - jinja2 >=3.1
+        - lazy_loader >=0.3
+        - matplotlib-base >=3.9
+        - numpy >=2.1,<3
+        - packaging
+        - pooch >=1.5
+        - scipy >=1.14
+        - tqdm >=4.66
+
+    tests:
+      - python:
+          imports:
+            - mne
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
+      - script:
+          - mne --version
+
+  - package:
+      name: mne
+    build:
+      noarch: python
+      # not `if osx`: inside a build string template the platform predicates are
+      # stuck on the machine running the render, so they ignore --build-platform
+      string: ${{ (build_platform | split("-"))[0] }}_${{ build_variant }}_h${{ hash }}_${{ build_number }}
+
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - python >=${{ python_min }}
+        # rattler's bound expressions are one segment shorter than conda-build's:
+        # this is the old max_pin="x.x.x.x", i.e. >=1.13.0,<1.13.1.0a0
+        - ${{ pin_subpackage('mne-base', upper_bound="x.x.x") }}
+        - if: osx
+          then:
+            - __osx
+            - pyobjc-framework-cocoa >=5.2.0  # for setting Dock icons etc
+        - antio >=0.5.0
+        - curryreader >=0.1.2
+        - darkdetect
+        - defusedxml
+        - dipy >=1.9
+        - edfio >=0.4.10
+        - eeglabio
+        - filelock >=3.18.0
+        - h5io >=0.2.4
+        - h5py >=2.4
+        - imageio >=2.6.1
+        - imageio-ffmpeg >=0.4.1
+        - ipyevents
+        - ipympl
+        - ipython >=2.0,!=8.7.0
+        - ipywidgets
+        - jamica >=0.3.0
+        - joblib >=0.8
+        - jupyter
+        - mffpy >=0.11.0
+        - mne-qt-browser >=0.6
+        - nest-asyncio2
+        - nibabel >=5.2
+        - nilearn >=0.10
+        - numba >=0.60
+        - openmeeg >=2.5.7
+        - pandas >=2.2,!=3.0.4
+        - pillow
+        - pyarrow
+        - pybv
+        - pymatreader
+        - pymef
+        - python-neo
+        - python-picard >=0.4
+        - pyvista >=0.44
+        - pyvistaqt >=0.11
+        - qdarkstyle >=3.2.2
+        - qtpy
+        - scikit-learn >=1.5
+        - sip
+        - snirf
+        - statsmodels >=0.6
+        - threadpoolctl
+        - traitlets
+        - trame
+        - trame-pyvista
+        - trame-vtk
+        - trame-vuetify !=3.2.3
+        - vtk >=9.2
+        - xlrd
+        - if: build_variant == "pyqt6"
+          then:
+            - pyqt6 !=6.6.0
+            - qt6-main !=6.6.0,!=6.7.0
+          else: pyside6 !=6.7.0,!=6.8.0,!=6.8.0.1,!=6.9.1
+
+    tests:
+      # One env rather than a python + script pair: solving this dependency set
+      # twice is what the version pins below are there to avoid
+      - script:
+          - pip check
+          - mne --version
+          - python -c "import mne"
+        requirements:
+          run:
+            - python ${{ python_min }}.*
+            - pip
+            # Try to speed up the solver
+            - if: build_variant == "pyqt6"
+              then: pyqt6 =6.11.0
+              else: pyside6 =6.11.0
+            - qt6-main =6.11.0
+
+about:
+  homepage: http://mne.tools
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: MNE-Python is a software for MEG and EEG data analysis.
+  description: |
+    The main package for MNE-Python is named `mne` in conda-forge and should
+    be suitable for most users. The conda recipe produces the following:
+
+    - `mne`: should be installed for full functionality including 3D visualization.
+    - `mne-base`: only pulls dependencies for basic functionality and 2D visualization.
+  documentation: http://mne.tools
+  repository: https://github.com/mne-tools/mne-python
+
+extra:
+  recipe-maintainers:
+    - larsoner
+    - christianbrodbeck
+    - hoechenberger
