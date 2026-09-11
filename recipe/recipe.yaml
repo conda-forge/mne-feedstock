@@ -130,6 +130,7 @@ outputs:
         - trame <4
         - trame-client <4
         - trame-pyvista
+        - trame-server <4
         - trame-vtk
         - trame-vuetify !=3.2.3
         - vtk >=9.2
