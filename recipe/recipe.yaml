@@ -6,7 +6,7 @@ context:
   version: "1.13.2"
   sha256: 729829e35010a7273cce8608d61d930c973fbead6edc1a70316c01e3a5551521
   # PySide6 is the binding mne[full] installs; PyQt6 is opt-in via mne[full-pyqt6]
-  build_number: 0
+  build_number: ${{ 200 if build_variant == "pyside6" else 100 }}
 
 recipe:
   name: mne-python
