@@ -3,8 +3,8 @@ schema_version: 1
 
 # Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
 context:
-  version: "1.13.0"
-  sha256: 9308523df88bd6fdf6e60af07cdb459eac079c93dbc48032de30653e393e1344
+  version: "1.13.1"
+  sha256: 02551d2412e15ef4ebe7f5177878e974bb6bc53ad27fdfde5e25897a9f2941f0
   # PySide6 is the binding mne[full] installs; PyQt6 is opt-in via mne[full-pyqt6]
   build_number: ${{ 200 if build_variant == "pyside6" else 100 }}
 
@@ -127,8 +127,10 @@ outputs:
         - statsmodels >=0.6
         - threadpoolctl
         - traitlets
-        - trame
+        - trame <4
+        - trame-client <4
         - trame-pyvista
+        - trame-server <4
         - trame-vtk
         - trame-vuetify !=3.2.3
         - vtk >=9.2
