@@ -3,8 +3,8 @@ schema_version: 1
 
 # Adapted from https://github.com/conda-forge/vtk-feedstock/blob/main/recipe/meta.yaml
 context:
-  version: "1.13.1"
-  sha256: 02551d2412e15ef4ebe7f5177878e974bb6bc53ad27fdfde5e25897a9f2941f0
+  version: "1.13.2"
+  sha256: 729829e35010a7273cce8608d61d930c973fbead6edc1a70316c01e3a5551521
   # PySide6 is the binding mne[full] installs; PyQt6 is opt-in via mne[full-pyqt6]
   build_number: ${{ 200 if build_variant == "pyside6" else 100 }}
 
